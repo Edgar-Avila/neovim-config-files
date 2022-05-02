@@ -23,13 +23,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/nvim-cmp'
+    " Better highlighting
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/signify.vim
 source ~/.config/nvim/plugins/lsp.vim
+source ~/.config/nvim/plugins/treesitter.vim
 
 " Colorsheme
-syntax on
 colorscheme onedark
