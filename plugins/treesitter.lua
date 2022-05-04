@@ -1,6 +1,5 @@
-lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "python", "vim", "cpp", "typescript", "javascript" },
+  ensure_installed = { "python", "cpp", "typescript", "javascript", "lua" },
   sync_install = false,
   highlight = {
     enable = true,

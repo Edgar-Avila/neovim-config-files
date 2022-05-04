@@ -28,10 +28,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 call plug#end()
 
 source ~/.config/nvim/plugins/nerdtree.vim
-source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/signify.vim
-source ~/.config/nvim/plugins/lsp.vim
-source ~/.config/nvim/plugins/treesitter.vim
+luafile ~/.config/nvim/plugins/telescope.lua
+luafile ~/.config/nvim/plugins/lsp.lua
+luafile ~/.config/nvim/plugins/treesitter.lua
 
 " Colorsheme
 colorscheme onedark
