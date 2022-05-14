@@ -1,5 +1,5 @@
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
 local cmp = require 'cmp'
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -47,8 +47,8 @@ cmp.setup.cmdline(':', {
     })
 })
 
+-- Lsp keymaps
 local opts = { noremap = true, silent = true }
-
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g?', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -63,11 +63,18 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
+-- Define capabilities
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = { 'pyright', 'tsserver', 'sumneko_lua', 'clangd', 'volar' }
+
+-- Define servers
+local servers = { 'pyright', 'tsserver', 'sumneko_lua', 'clangd', 'volar', 'cssls', 'html', 'emmet_ls' }
+
+-- Automatically install servers
 require("nvim-lsp-installer").setup {
     automatic_installation = true,
 }
+
+-- Configure every server in servers
 for _, server in pairs(servers) do
     require('lspconfig')[server].setup {
         on_attach = on_attach,
