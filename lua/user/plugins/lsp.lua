@@ -61,13 +61,15 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ge', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ga', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 end
 
 -- Define capabilities
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Define servers
-local servers = { 'pyright', 'tsserver', 'sumneko_lua', 'clangd', 'volar', 'cssls', 'html', 'emmet_ls' }
+local servers = { 'pyright', 'tsserver', 'sumneko_lua', 'clangd', 'volar', 'cssls', 'html', 'emmet_ls', 'rust_analyzer' }
 
 -- Automatically install servers
 require("nvim-lsp-installer").setup {
