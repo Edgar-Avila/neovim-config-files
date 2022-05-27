@@ -9,7 +9,7 @@ end
 
 telescope.setup{
     defaults = {
-        file_ignore_patterns = {"node_modules/.*", "env/.*", "__pycache__/*" }
+        file_ignore_patterns = {"node_modules/.*", "env/.*", "__pycache__/*", "target/.*"}
     }
 }
 
