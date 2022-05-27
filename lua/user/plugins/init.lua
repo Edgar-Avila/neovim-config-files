@@ -1,21 +1,5 @@
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
-require 'user.plugins.nerdtree'
-require 'user.plugins.signify'
-require 'user.plugins.dashboard-nvim'
-require 'user.plugins.telescope'
-require 'user.plugins.lsp'
-require 'user.plugins.treesitter'
-
--- Colorsheme
-vim.cmd [[ colorscheme onedark ]]
-
-return require('packer').startup(function(use)
+-- Load plugins
+require('packer').startup(function(use)
     -- File Tree
     use 'scrooloose/nerdtree'
     -- Status line
@@ -45,3 +29,15 @@ return require('packer').startup(function(use)
     -- Dashboard
     use 'glepnir/dashboard-nvim'
 end)
+
+-- Plugins configuration
+require 'user.plugins.nerdtree'
+require 'user.plugins.signify'
+require 'user.plugins.dashboard-nvim'
+require 'user.plugins.telescope'
+require 'user.plugins.lsp'
+require 'user.plugins.treesitter'
+
+-- Colorsheme
+vim.cmd [[ colorscheme onedark ]]
+
