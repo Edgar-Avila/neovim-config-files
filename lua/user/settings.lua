@@ -17,3 +17,4 @@ vim.opt.laststatus = 2
 vim.opt.showmode = false
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.wo.wrap = false
