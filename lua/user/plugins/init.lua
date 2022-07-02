@@ -28,6 +28,8 @@ require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     -- Dashboard
     use 'glepnir/dashboard-nvim'
+    -- Multiple Cursors
+    use 'mg979/vim-visual-multi'
 end)
 
 -- Plugins configuration
