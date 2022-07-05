@@ -13,6 +13,7 @@ require('packer').startup(function(use)
     use 'tpope/vim-rhubarb'
     -- Theme
     use 'olimorris/onedarkpro.nvim'
+    use 'morhetz/gruvbox'
     -- Lsp
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
@@ -43,5 +44,5 @@ require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
 
 -- Colorsheme
-vim.cmd [[ colorscheme onedarkpro ]]
+vim.cmd [[ colorscheme gruvbox ]]
 
