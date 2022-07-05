@@ -11,8 +11,8 @@ vim.api.nvim_command("autocmd filetype rust map <buffer> <f5> :w<cr>:exec \"!car
 vim.api.nvim_command("autocmd fileType rust imap <buffer> <F5> <esc>:w<cr>:exec \"!cargo run\"<CR>")
 
 -- Set background transparent
-vim.cmd [[
-    hi Normal guibg=NONE ctermbg=NONE
-]]
+-- vim.cmd [[
+--     hi Normal guibg=NONE ctermbg=NONE
+-- ]]
 
 

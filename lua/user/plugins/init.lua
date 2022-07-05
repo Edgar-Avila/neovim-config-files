@@ -12,7 +12,7 @@ require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     -- Theme
-    use 'joshdick/onedark.vim'
+    use 'olimorris/onedarkpro.nvim'
     -- Lsp
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
@@ -41,5 +41,5 @@ require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
 
 -- Colorsheme
-vim.cmd [[ colorscheme onedark ]]
+vim.cmd [[ colorscheme onedarkpro ]]
 
