@@ -30,6 +30,8 @@ require('packer').startup(function(use)
     use 'glepnir/dashboard-nvim'
     -- Multiple Cursors
     use 'mg979/vim-visual-multi'
+    -- File Icons
+    use 'kyazdani42/nvim-web-devicons'
 end)
 
 -- Plugins configuration
