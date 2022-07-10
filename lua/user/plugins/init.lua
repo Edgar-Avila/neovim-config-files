@@ -5,8 +5,10 @@ require('packer').startup(function(use)
     -- Status line
     use 'itchyny/lightline.vim'
     -- Fuzzy finder
+    use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
+    use 'nvim-telescope/telescope-media-files.nvim'
     -- Git integration
     use 'mhinz/vim-signify'
     use 'tpope/vim-fugitive'
@@ -31,6 +33,8 @@ require('packer').startup(function(use)
     use 'glepnir/dashboard-nvim'
     -- Multiple Cursors
     use 'mg979/vim-visual-multi'
+    -- Neoclip
+    use "AckslD/nvim-neoclip.lua"
     -- File Icons
     use 'kyazdani42/nvim-web-devicons'
 end)
