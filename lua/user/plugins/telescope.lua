@@ -17,7 +17,7 @@ vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {nore
 vim.api.nvim_set_keymap("n", "<leader>fc", "<cmd>Telescope colorscheme<cr>", {noremap = true}) -- Colorscheme
 vim.api.nvim_set_keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", {noremap = true}) -- Recent
 vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>Telescope builtin<cr>", {noremap = true}) -- Telescope options
-vim.api.nvim_set_keymap("n", "<leader>fy", "<cmd>Telescope neoclip<cr>", {noremap = true}) -- Tracked by git
+vim.api.nvim_set_keymap("n", "<leader>fy", "<cmd>Telescope neoclip plus<cr>", {noremap = true}) -- Tracked by git
 
 -- Lsp mappings
 vim.api.nvim_set_keymap("n", "<leader>fR", "<cmd>Telescope lsp_references<cr>", {noremap = true})
