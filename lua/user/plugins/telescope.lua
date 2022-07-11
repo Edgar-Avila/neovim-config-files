@@ -3,9 +3,16 @@ if not status_ok then
   return
 end
 
+local ignored = {"node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "build/*", "dist/*"}
+
+-- If OS is Windows
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    ignored = {"node_modules\\.*", "env\\.*", "__pycache__\\*", "target\\.*", "build\\*", "dist\\*"}
+end
+
 telescope.setup{
     defaults = {
-        file_ignore_patterns = {"node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "build/*", "dist/*"}
+        file_ignore_patterns = ignored
     }
 }
 telescope.load_extension('neoclip')
