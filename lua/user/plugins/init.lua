@@ -46,6 +46,7 @@ require 'user.plugins.nerdtree'
 require 'user.plugins.signify'
 require 'user.plugins.dashboard-nvim'
 require 'user.plugins.telescope'
+require 'user.plugins.cmp'
 require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
 
