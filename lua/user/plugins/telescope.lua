@@ -7,7 +7,7 @@ local ignored = {"node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "bui
 
 -- If OS is Windows
 if vim.loop.os_uname().sysname == "Windows_NT" then
-    ignored = {"node_modules\\.*", "env\\.*", "__pycache__\\*", "target\\.*", "build\\*", "dist\\*"}
+    ignored = {"node_modules\\.*", "env\\.*", "__pycache__\\*", "target\\.*", "build\\*", "dist\\*", "vendor\\*"}
 end
 
 telescope.setup{
@@ -18,6 +18,7 @@ telescope.setup{
 telescope.load_extension('neoclip')
 
 vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {noremap = true}) -- Files
+vim.api.nvim_set_keymap("n", "<leader>f.", "<cmd>Telescope find_files hidden=true<cr>", {noremap = true}) -- Tracked by git
 vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {noremap = true}) -- Grep
 vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {noremap = true}) -- Buffers
 vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {noremap = true}) -- Help tags
