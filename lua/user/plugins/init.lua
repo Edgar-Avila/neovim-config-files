@@ -1,5 +1,7 @@
 -- Load plugins
 require('packer').startup(function(use)
+    -- Packer
+    use 'wbthomason/packer.nvim'
     -- File Tree
     use 'scrooloose/nerdtree'
     -- Status line
