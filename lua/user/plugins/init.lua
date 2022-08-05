@@ -16,6 +16,7 @@ require('packer').startup(function(use)
     -- Theme
     use 'olimorris/onedarkpro.nvim'
     use 'morhetz/gruvbox'
+    use 'folke/tokyonight.nvim'
     -- Lsp
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
