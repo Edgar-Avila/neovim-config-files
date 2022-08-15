@@ -1,5 +1,5 @@
 -- Remap Esc
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", {noremap = true})
+-- vim.api.nvim_set_keymap("i", "jj", "<Esc>", {noremap = true})
 
 -- Better window navigation
 vim.api.nvim_set_keymap("n", "<leader>w", "<C-w>", {noremap = true})
@@ -12,6 +12,7 @@ vim.api.nvim_set_keymap("n", "<leader>cdf", ":cd %:p:h<CR>", {noremap = true})
 
 -- Closing brackets and quotes
 vim.api.nvim_set_keymap("i", "'", "''<left>", {noremap = true})
+vim.api.nvim_set_keymap("i", "`", "``<left>", {noremap = true})
 vim.api.nvim_set_keymap("i", "\"", "\"\"<left>", {noremap = true})
 vim.api.nvim_set_keymap("i", "{", "{}<left>", {noremap = true})
 vim.api.nvim_set_keymap("i", "(", "()<left>", {noremap = true})
