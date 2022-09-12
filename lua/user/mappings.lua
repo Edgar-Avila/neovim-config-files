@@ -1,5 +1,8 @@
+-- Paste without losing what is on buffer
+vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP", {noremap = true})
+
 -- Remap Esc
--- vim.api.nvim_set_keymap("i", "jj", "<Esc>", {noremap = true})
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", {noremap = true})
 
 -- Better window navigation
 vim.api.nvim_set_keymap("n", "<leader>w", "<C-w>", {noremap = true})
