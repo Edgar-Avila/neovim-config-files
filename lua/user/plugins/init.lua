@@ -22,6 +22,7 @@ require('packer').startup(function(use)
     -- Lsp
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
+    use 'onsails/lspkind.nvim'
     -- Snippets
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
@@ -54,5 +55,5 @@ require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
 
 -- Colorsheme
-vim.cmd [[ colorscheme gruvbox ]]
+vim.cmd [[ colorscheme tokyonight ]]
 
