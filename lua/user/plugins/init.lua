@@ -11,6 +11,8 @@ require('packer').startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-media-files.nvim'
+    -- Marks
+    use 'ThePrimeagen/harpoon'
     -- Git integration
     use 'mhinz/vim-signify'
     use 'tpope/vim-fugitive'
