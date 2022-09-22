@@ -3,7 +3,7 @@ require('packer').startup(function(use)
     -- Packer
     use 'wbthomason/packer.nvim'
     -- File Tree
-    use 'scrooloose/nerdtree'
+    use 'kyazdani42/nvim-tree.lua'
     -- Status line
     use 'itchyny/lightline.vim'
     -- Fuzzy finder
@@ -48,7 +48,7 @@ require('packer').startup(function(use)
 end)
 
 -- Plugins configuration
-require 'user.plugins.nerdtree'
+require 'user.plugins.nvimtree'
 require 'user.plugins.signify'
 require 'user.plugins.dashboard-nvim'
 require 'user.plugins.telescope'
