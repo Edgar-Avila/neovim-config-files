@@ -10,7 +10,6 @@ require('packer').startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-media-files.nvim'
     -- Marks
     use 'ThePrimeagen/harpoon'
     -- Git integration
@@ -57,5 +56,5 @@ require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
 
 -- Colorsheme
-vim.cmd [[ colorscheme tokyonight ]]
+vim.cmd [[ colorscheme gruvbox ]]
 
