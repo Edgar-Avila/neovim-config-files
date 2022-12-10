@@ -21,6 +21,7 @@ require('packer').startup(function(use)
     use 'olimorris/onedarkpro.nvim'
     use 'morhetz/gruvbox'
     use 'folke/tokyonight.nvim'
+    use 'artanikin/vim-synthwave84'
     -- Lsp
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
@@ -42,7 +43,12 @@ require('packer').startup(function(use)
     -- Multiple Cursors
     use 'mg979/vim-visual-multi'
     -- Neoclip
-    use "AckslD/nvim-neoclip.lua"
+    use 'AckslD/nvim-neoclip.lua'
+    -- Leap
+    use 'tpope/vim-repeat'
+    use 'ggandor/leap.nvim'
+    -- Terminal
+    use 'akinsho/toggleterm.nvim'
     -- File Icons
     use 'kyazdani42/nvim-web-devicons'
 end)
@@ -55,7 +61,9 @@ require 'user.plugins.telescope'
 require 'user.plugins.cmp'
 require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
+require 'user.plugins.leap'
+require 'user.plugins.toggleterm'
 
 -- Colorsheme
-vim.cmd [[ colorscheme tokyonight ]]
+vim.cmd [[ colorscheme gruvbox ]]
 
