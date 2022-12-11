@@ -21,6 +21,8 @@ require('packer').startup(function(use)
     use 'morhetz/gruvbox'
     use 'folke/tokyonight.nvim'
     -- Lsp
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'onsails/lspkind.nvim'
