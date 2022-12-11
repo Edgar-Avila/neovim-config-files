@@ -4,7 +4,7 @@ local lspconfig = require('lspconfig')
 local function config(_config)
     local opts = { noremap = true, silent = true }
     return vim.tbl_deep_extend("force", {
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(client, bufnr)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g?', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -25,8 +25,12 @@ end
 
 -- Automatically install configured servers
 require("nvim-lsp-installer").setup {
-    automatic_installation = true,
+--     automatic_installation = true,
 }
+require("mason").setup()
+require("mason-lspconfig").setup({
+    automatic_installation = true
+})
 
 -- Configure servers by default
 lspconfig.pyright.setup(config())

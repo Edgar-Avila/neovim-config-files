@@ -10,7 +10,6 @@ require('packer').startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-media-files.nvim'
     -- Marks
     use 'ThePrimeagen/harpoon'
     -- Git integration
@@ -23,6 +22,8 @@ require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'artanikin/vim-synthwave84'
     -- Lsp
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'onsails/lspkind.nvim'
