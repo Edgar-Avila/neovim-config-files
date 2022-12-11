@@ -19,6 +19,9 @@ local function config(_config)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ge', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ga', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+        end,
+        root_dir = function (fname)
+            return vim.loop.cwd()
         end
     }, _config or {})
 end
