@@ -64,6 +64,3 @@ require 'user.plugins.treesitter'
 require 'user.plugins.leap'
 require 'user.plugins.toggleterm'
 
--- Colorsheme
-vim.cmd [[ colorscheme gruvbox ]]
-
