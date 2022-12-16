@@ -48,7 +48,7 @@ require('packer').startup(function(use)
     use 'tpope/vim-repeat'
     use 'ggandor/leap.nvim'
     -- Terminal
-    use 'akinsho/toggleterm.nvim'
+    use 'voldikss/vim-floaterm'
     -- File Icons
     use 'kyazdani42/nvim-web-devicons'
 end)
@@ -62,5 +62,5 @@ require 'user.plugins.cmp'
 require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
 require 'user.plugins.leap'
-require 'user.plugins.toggleterm'
+require 'user.plugins.floaterm'
 

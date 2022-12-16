@@ -19,6 +19,11 @@ vim.api.nvim_set_keymap("n", "<leader>bg", ":lua SetBgTransparent()<CR>", {norem
 -- Nvim tree mappings
 vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeToggle<CR>", {noremap=true})
 
+-- Floaterm mappings
+vim.api.nvim_set_keymap("n", "<leader>tt", ":FloatermToggle<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>t;", ":FloatermNew<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>tg", ":FloatermNew lazygit<CR>", {noremap=true})
+
 -- Closing brackets and quotes
 vim.api.nvim_set_keymap("i", "'", "''<left>", {noremap = true})
 vim.api.nvim_set_keymap("i", "`", "``<left>", {noremap = true})
