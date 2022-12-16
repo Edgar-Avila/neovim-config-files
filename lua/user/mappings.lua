@@ -14,7 +14,10 @@ vim.api.nvim_set_keymap("n", "<leader>cdi", ":e $MYVIMRC<CR>:cd %:p:h<CR>", {nor
 vim.api.nvim_set_keymap("n", "<leader>cdf", ":cd %:p:h<CR>", {noremap = true})
 
 -- Make background transparent
-vim.api.nvim_set_keymap("n", "<leader><leader>t", ":lua SetBgTransparent()<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>bg", ":lua SetBgTransparent()<CR>", {noremap = true})
+
+-- Nvim tree mappings
+vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeToggle<CR>", {noremap=true})
 
 -- Closing brackets and quotes
 vim.api.nvim_set_keymap("i", "'", "''<left>", {noremap = true})
