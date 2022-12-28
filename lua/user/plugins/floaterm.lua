@@ -13,5 +13,5 @@ vim.g.floaterm_wintitle=0
 vim.g.floaterm_autoclose=1
 
 if vim.loop.os_uname().sysname == "Windows_NT" then
-    vim.g.floaterm_shell='powershell.exe'
+    vim.g.floaterm_shell='pwsh.exe'
 end
