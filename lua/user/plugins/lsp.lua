@@ -41,10 +41,11 @@ lspconfig.html.setup(config())
 lspconfig.emmet_ls.setup(config())
 lspconfig.gopls.setup(config())
 lspconfig.svelte.setup(config())
-if vim.loop.os_uname().sysname ~= "Windows_NT" then
+lspconfig.rust_analyzer.setup(config())
+-- if vim.loop.os_uname().sysname ~= "Windows_NT" then
     -- Lsp installer can not install rust_analyzer on windows for some reason
-    lspconfig.rust_analyzer.setup(config())
-end
+    -- lspconfig.rust_analyzer.setup(config())
+-- end
 
 -- Configure servers with custom configuration
 lspconfig.sumneko_lua.setup(config({
