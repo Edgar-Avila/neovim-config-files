@@ -69,6 +69,7 @@ require("lazy").setup({
 -- Plugins configuration
 require 'user.plugins.colorscheme'
 require 'user.plugins.nvimtree'
+require 'user.plugins.harpoon'
 require 'user.plugins.signify'
 require 'user.plugins.dashboard-nvim'
 require 'user.plugins.telescope'
