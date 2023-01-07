@@ -1,73 +1,73 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+vim.g.mapleader = ' '
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
 -- Load plugins
-require('packer').startup(function(use)
+require("lazy").setup({
     -- Packer
-    use 'wbthomason/packer.nvim'
+    'wbthomason/packer.nvim',
     -- File Tree
-    use 'kyazdani42/nvim-tree.lua'
+    'kyazdani42/nvim-tree.lua',
     -- Status line
-    use 'itchyny/lightline.vim'
+    'itchyny/lightline.vim',
     -- Fuzzy finder
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
     -- Marks
-    use 'ThePrimeagen/harpoon'
+    'ThePrimeagen/harpoon',
     -- Git integration
-    use 'mhinz/vim-signify'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-rhubarb'
+    'mhinz/vim-signify',
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
     -- Theme
-    use 'morhetz/gruvbox'
-    use 'folke/tokyonight.nvim'
-    use 'artanikin/vim-synthwave84'
+    'morhetz/gruvbox',
+    'folke/tokyonight.nvim',
+    'artanikin/vim-synthwave84',
     -- Lsp
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'neovim/nvim-lspconfig'
-    use 'onsails/lspkind.nvim'
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+    'onsails/lspkind.nvim',
     -- Snippets
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
     -- Completion
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/nvim-cmp'
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/nvim-cmp',
     -- Surround behavior
-    use 'tpope/vim-surround'
+    'tpope/vim-surround',
     -- Better highlighting
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
     -- Dashboard
-    use 'glepnir/dashboard-nvim'
+    'glepnir/dashboard-nvim',
     -- Multiple Cursors
-    use 'mg979/vim-visual-multi'
+    'mg979/vim-visual-multi',
     -- Neoclip
-    use 'AckslD/nvim-neoclip.lua'
+    'AckslD/nvim-neoclip.lua',
     -- Leap
-    use 'tpope/vim-repeat'
-    use 'ggandor/leap.nvim'
+    'tpope/vim-repeat',
+    'ggandor/leap.nvim',
     -- Terminal
-    use 'voldikss/vim-floaterm'
+    'voldikss/vim-floaterm',
     -- File Icons
-    use 'kyazdani42/nvim-web-devicons'
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-end)
+    'kyazdani42/nvim-web-devicons',
+})
 
 -- Plugins configuration
+require 'user.plugins.colorscheme'
 require 'user.plugins.nvimtree'
 require 'user.plugins.signify'
 require 'user.plugins.dashboard-nvim'
