@@ -14,8 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
 require("lazy").setup({
-    -- Packer
-    'wbthomason/packer.nvim',
+    -- Theme
+    {
+        'folke/tokyonight.nvim',
+        lazy = false,
+        priority=1000,
+        config = function ()
+            vim.cmd [[ colorscheme tokyonight-night ]]
+        end
+    },
+    'morhetz/gruvbox',
+    'artanikin/vim-synthwave84',
     -- File Tree
     'kyazdani42/nvim-tree.lua',
     -- Status line
@@ -30,10 +39,6 @@ require("lazy").setup({
     'mhinz/vim-signify',
     'tpope/vim-fugitive',
     'tpope/vim-rhubarb',
-    -- Theme
-    'morhetz/gruvbox',
-    'folke/tokyonight.nvim',
-    'artanikin/vim-synthwave84',
     -- Lsp
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
