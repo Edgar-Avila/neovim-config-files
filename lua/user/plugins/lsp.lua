@@ -1,4 +1,5 @@
 local lspconfig = require('lspconfig')
+require('lsp_signature').setup()
 
 -- Helper function to configure servers
 local function config(_config)
@@ -42,6 +43,7 @@ lspconfig.emmet_ls.setup(config())
 lspconfig.gopls.setup(config())
 lspconfig.svelte.setup(config())
 lspconfig.rust_analyzer.setup(config())
+lspconfig.intelephense.setup(config())
 -- if vim.loop.os_uname().sysname ~= "Windows_NT" then
     -- Lsp installer can not install rust_analyzer on windows for some reason
     -- lspconfig.rust_analyzer.setup(config())

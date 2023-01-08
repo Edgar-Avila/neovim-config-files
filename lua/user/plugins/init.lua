@@ -44,6 +44,7 @@ require("lazy").setup({
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
     'onsails/lspkind.nvim',
+    'ray-x/lsp_signature.nvim',
     -- Snippets
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
