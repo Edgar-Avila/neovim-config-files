@@ -16,6 +16,9 @@ vim.api.nvim_set_keymap("n", "<leader>cdf", ":cd %:p:h<CR>", {noremap = true})
 -- Make background transparent
 vim.api.nvim_set_keymap("n", "<leader>bg", ":lua SetBgTransparent()<CR>", {noremap = true})
 
+-- Create tab
+vim.api.nvim_set_keymap("n", "<leader>mt", ":tabnew<CR>", {noremap = true})
+
 -- Closing brackets and quotes
 vim.api.nvim_set_keymap("i", "'", "''<left>", {noremap = true})
 vim.api.nvim_set_keymap("i", "`", "``<left>", {noremap = true})
