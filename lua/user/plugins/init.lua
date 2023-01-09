@@ -23,6 +23,7 @@ require("lazy").setup({
             vim.cmd [[ colorscheme tokyonight-night ]]
         end
     },
+    'dracula/vim',
     'morhetz/gruvbox',
     'artanikin/vim-synthwave84',
     -- File Tree
