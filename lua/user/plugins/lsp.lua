@@ -34,12 +34,18 @@ require("mason-lspconfig").setup({
 
 -- Configure servers by default
 lspconfig.pyright.setup(config())
+lspconfig.omnisharp.setup(config())
 lspconfig.tsserver.setup(config())
 lspconfig.clangd.setup(config())
 lspconfig.volar.setup(config())
 lspconfig.cssls.setup(config())
 lspconfig.html.setup(config())
-lspconfig.emmet_ls.setup(config())
+capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig.emmet_ls.setup(config({
+    capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php' }
+}))
 lspconfig.gopls.setup(config())
 lspconfig.svelte.setup(config())
 lspconfig.rust_analyzer.setup(config())
@@ -50,7 +56,7 @@ lspconfig.intelephense.setup(config())
 -- end
 
 -- Configure servers with custom configuration
-lspconfig.sumneko_lua.setup(config({
+lspconfig.lua_ls.setup(config({
     settings = {
         Lua = {
             diagnostics = {

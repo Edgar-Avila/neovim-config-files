@@ -18,3 +18,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.wo.wrap = false
 vim.opt.termguicolors = true
+vim.opt.colorcolumn = "80"

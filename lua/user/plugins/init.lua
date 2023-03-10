@@ -46,6 +46,8 @@ require("lazy").setup({
     'neovim/nvim-lspconfig',
     'onsails/lspkind.nvim',
     'ray-x/lsp_signature.nvim',
+    -- Blade syntax highlighting
+    'jwalton512/vim-blade',
     -- Snippets
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
@@ -58,8 +60,8 @@ require("lazy").setup({
     'tpope/vim-surround',
     -- Better highlighting
     { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-    -- Dashboard
-    'glepnir/dashboard-nvim',
+    -- Comment stuff
+    'tpope/vim-commentary',
     -- Multiple Cursors
     'mg979/vim-visual-multi',
     -- Neoclip
@@ -78,7 +80,6 @@ require 'user.plugins.colorscheme'
 require 'user.plugins.nvimtree'
 require 'user.plugins.harpoon'
 require 'user.plugins.signify'
-require 'user.plugins.dashboard-nvim'
 require 'user.plugins.telescope'
 require 'user.plugins.cmp'
 require 'user.plugins.lsp'
