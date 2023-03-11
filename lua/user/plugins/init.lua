@@ -58,8 +58,6 @@ require("lazy").setup({
     'neovim/nvim-lspconfig',
     'onsails/lspkind.nvim',
     'ray-x/lsp_signature.nvim',
-    -- Blade syntax highlighting
-    'jwalton512/vim-blade',
     -- Snippets
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
