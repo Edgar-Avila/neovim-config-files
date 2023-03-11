@@ -10,6 +10,7 @@ require'nvim-treesitter.configs'.setup {
       "vim",
       "json",
       "vue",
+      "php"
   },
   sync_install = false,
   highlight = {

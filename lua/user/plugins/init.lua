@@ -1,14 +1,14 @@
 vim.g.mapleader = ' '
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -18,11 +18,23 @@ require("lazy").setup({
     {
         'folke/tokyonight.nvim',
         lazy = false,
-        priority=1000,
-        config = function ()
+        priority = 1000,
+        config = function()
             vim.cmd [[ colorscheme tokyonight-night ]]
         end
     },
+    {
+        "adalessa/laravel.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
+        cmd = { "Sail", "Artisan", "Composer" },
+        config = function()
+            require("laravel").setup()
+            require("telescope").load_extension("laravel")
+        end
+    },
+    'junegunn/vim-easy-align',
     'dracula/vim',
     'morhetz/gruvbox',
     'artanikin/vim-synthwave84',
@@ -86,4 +98,3 @@ require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
 require 'user.plugins.leap'
 require 'user.plugins.floaterm'
-
