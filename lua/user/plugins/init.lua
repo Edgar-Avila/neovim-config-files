@@ -16,24 +16,30 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- Theme
     {
-        'folke/tokyonight.nvim',
+        "catppuccin/nvim",
         lazy = false,
         priority = 1000,
+        name = "catppuccin",
         config = function()
-            vim.cmd [[ colorscheme tokyonight-night ]]
+            require("catppuccin").setup({
+                flavour = "mocha",
+                term_colors = true,
+                transparent_background = true,
+                integrations = {
+                    mason = true,
+                    leap = true,
+                    nvimtree = true,
+                    cmp = true,
+                    harpoon = true,
+                    telescope = true,
+                    treesitter = true,
+                }
+            })
+            vim.g.lightline = {colorscheme = "catppuccin"}
+            vim.cmd.colorscheme("catppuccin")
         end
     },
-    {
-        "adalessa/laravel.nvim",
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-        },
-        cmd = { "Sail", "Artisan", "Composer" },
-        config = function()
-            require("laravel").setup()
-            require("telescope").load_extension("laravel")
-        end
-    },
+    'folke/tokyonight.nvim',
     'junegunn/vim-easy-align',
     'dracula/vim',
     'morhetz/gruvbox',
@@ -66,6 +72,17 @@ require("lazy").setup({
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/nvim-cmp',
+    {
+        "adalessa/laravel.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
+        cmd = { "Sail", "Artisan", "Composer" },
+        config = function()
+            require("laravel").setup()
+            require("telescope").load_extension("laravel")
+        end
+    },
     -- Surround behavior
     'tpope/vim-surround',
     -- Better highlighting
