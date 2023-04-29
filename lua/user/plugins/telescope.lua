@@ -7,7 +7,7 @@ local ignored = {"node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "bui
 
 -- If OS is Windows
 if vim.loop.os_uname().sysname == "Windows_NT" then
-    ignored = {"node_modules\\.*", "env\\.*", "__pycache__\\*", "target\\.*", "build\\*", "dist\\*", "vendor\\*"}
+    ignored = {"node_modules\\.*", "env\\.*", "__pycache__\\*", "target\\.*", "build\\*", "dist\\*", "vendor\\*", "bin\\*", "obj\\*"}
 end
 
 telescope.setup{
