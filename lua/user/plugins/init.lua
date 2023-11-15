@@ -35,15 +35,18 @@ require("lazy").setup({
                     treesitter = true,
                 }
             })
-            vim.g.lightline = {colorscheme = "catppuccin"}
+            vim.g.lightline = { colorscheme = "catppuccin" }
             vim.cmd.colorscheme("catppuccin")
         end
     },
-    'folke/tokyonight.nvim',
-    'junegunn/vim-easy-align',
-    'dracula/vim',
-    'morhetz/gruvbox',
-    'artanikin/vim-synthwave84',
+    {
+        'dracula/vim',
+        lazy = true,
+    },
+    {
+        'morhetz/gruvbox',
+        lazy = true,
+    },
     -- File Tree
     'kyazdani42/nvim-tree.lua',
     -- Status line
@@ -54,6 +57,7 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim',
     -- Marks
     'ThePrimeagen/harpoon',
+    -- require('user.plugins.harpoon'),
     -- Git integration
     'mhinz/vim-signify',
     'tpope/vim-fugitive',
@@ -74,6 +78,7 @@ require("lazy").setup({
     'hrsh7th/nvim-cmp',
     {
         "adalessa/laravel.nvim",
+        lazy = true,
         dependencies = {
             "nvim-telescope/telescope.nvim",
         },
@@ -88,28 +93,55 @@ require("lazy").setup({
     -- Better highlighting
     { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
     -- Comment stuff
-    'tpope/vim-commentary',
+    {
+        'tpope/vim-commentary',
+        keys = {
+            { "gcc", desc = "Comment current line" },
+            { "gc", mode = "v", desc = "Comment selected text" }
+        },
+        config = true,
+    },
+    -- Easy align
+    {
+        "junegunn/vim-easy-align",
+        keys = {
+            {
+                "ga",
+                "<Plug>(EasyAlign)",
+                mode = { "n", "v" },
+                desc = "EasyAlign"
+            }
+        },
+    },
     -- Multiple Cursors
     'mg979/vim-visual-multi',
     -- Neoclip
-    'AckslD/nvim-neoclip.lua',
-    -- Leap
-    'tpope/vim-repeat',
-    'ggandor/leap.nvim',
+    {
+        'AckslD/nvim-neoclip.lua',
+        lazy = true,
+        config = function()
+            require('neoclip').setup()
+            require("telescope").load_extension('neoclip')
+        end
+    },
     -- Terminal
-    'voldikss/vim-floaterm',
+     {
+        'voldikss/vim-floaterm',
+        cmd = { 'FloatermNew', 'FloatermToggle', 'FloatermNext', 'FloatermPrev' },
+        lazy = true,
+     },
     -- File Icons
     'kyazdani42/nvim-web-devicons',
 })
 
 -- Plugins configuration
+require 'user.plugins.telescope'
 require 'user.plugins.colorscheme'
 require 'user.plugins.nvimtree'
 require 'user.plugins.harpoon'
 require 'user.plugins.signify'
-require 'user.plugins.telescope'
 require 'user.plugins.cmp'
 require 'user.plugins.lsp'
 require 'user.plugins.treesitter'
-require 'user.plugins.leap'
+-- require 'user.plugins.leap'
 require 'user.plugins.floaterm'

@@ -15,9 +15,6 @@ telescope.setup{
         file_ignore_patterns = ignored
     }
 }
-require('neoclip').setup()
-telescope.load_extension('neoclip')
-
 vim.api.nvim_set_keymap("n", "<leader>ff",  "<cmd>Telescope find_files<cr>",             {noremap = true}) -- Files
 vim.api.nvim_set_keymap("n", "<leader>f.",  "<cmd>Telescope find_files hidden=true<cr>", {noremap = true}) -- Tracked by git
 vim.api.nvim_set_keymap("n", "<leader>fg",  "<cmd>Telescope live_grep<cr>",              {noremap = true}) -- Grep
