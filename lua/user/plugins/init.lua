@@ -48,20 +48,94 @@ require("lazy").setup({
         lazy = true,
     },
     -- File Tree
-    'kyazdani42/nvim-tree.lua',
+    {
+        'kyazdani42/nvim-tree.lua',
+        keys = {
+            {
+                "<leader>n",
+                ":NvimTreeToggle<CR>",
+            }
+        },
+        main = 'nvim-tree',
+        config = function ()
+            require('nvim-tree').setup()
+        end
+    },
     -- Status line
     'itchyny/lightline.vim',
     -- Fuzzy finder
-    'nvim-lua/popup.nvim',
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = {
+            {'nvim-lua/plenary.nvim'},
+            {'nvim-lua/popup.nvim'},
+            {'kyazdani42/nvim-web-devicons'},
+        },
+        config = function ()
+            local ignored = {"node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "build/*", "dist/*", "vendor\\*", "bin\\*", "obj\\*"}
+
+            if vim.loop.os_uname().sysname == "Windows_NT" then
+                for i = 1, #ignored do
+                    ignored[i] = string.gsub(ignored[i], "/", "\\")
+                end
+            end
+
+            require("telescope").setup({
+                defaults = {
+                    file_ignore_patterns = ignored
+                },
+                pickers = {
+                    colorscheme = {
+                        enable_preview = true,
+                    },
+                },
+            })
+        end,
+        keys = {
+            { "<leader>ff",  "<cmd>Telescope find_files<cr>",             }, -- Files
+            { "<leader>f.",  "<cmd>Telescope find_files hidden=true<cr>", }, -- Tracked by git
+            { "<leader>fg",  "<cmd>Telescope live_grep<cr>",              }, -- Grep
+            { "<leader>fb",  "<cmd>Telescope buffers<cr>",                }, -- Buffers
+            { "<leader>fh",  "<cmd>Telescope help_tags<cr>",              }, -- Help tags
+            { "<leader>fc",  "<cmd>Telescope colorscheme<cr>",            }, -- Colorscheme
+            { "<leader>fr",  "<cmd>Telescope oldfiles<cr>",               }, -- Recent
+            { "<leader>ft",  "<cmd>Telescope builtin<cr>",                }, -- Telescope options
+            { "<leader>fy",  "<cmd>Telescope neoclip plus<cr>",           }, -- Tracked by git
+            { "<leader>fpa", "<cmd>Artisan<cr>",                          }, -- Artisan
+
+            -- Lsp mappings
+            { "<leader>fR", "<cmd>Telescope lsp_references<cr>",        },
+            { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>",  },
+            { "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", },
+            { "<leader>fd", "<cmd>Telescope diagnostics<cr>",           },
+
+            -- Git mappings
+            { "<leader>gc", "<cmd>Telescope git_commits<cr>",  },
+            { "<leader>gs", "<cmd>Telescope git_status<cr>",   },
+            { "<leader>gb", "<cmd>Telescope git_branches<cr>", },
+            { "<leader>gf", "<cmd>Telescope git_files<cr>",    }, -- Tracked by git
+        }
+    },
     -- Marks
-    'ThePrimeagen/harpoon',
-    -- require('user.plugins.harpoon'),
+    require('user.plugins.harpoon'),
     -- Git integration
-    'mhinz/vim-signify',
-    'tpope/vim-fugitive',
-    'tpope/vim-rhubarb',
+    {
+        'mhinz/vim-signify',
+        init = function ()
+            vim.opt.updatetime=100
+        end
+    },
+    {
+        'tpope/vim-fugitive',
+        keys = { {"<leader>gd", "<cmd>Gvdiffsplit<cr>"} },
+        cmd = { "G", "Git", "GBrowse" },
+        lazy = true,
+    },
+    {
+        'tpope/vim-rhubarb',
+        cmd = { "GBrowse" },
+        lazy = true,
+    },
     -- Lsp
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
@@ -91,7 +165,25 @@ require("lazy").setup({
     -- Surround behavior
     'tpope/vim-surround',
     -- Better highlighting
-    { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate' ,
+        opts = {
+            ensure_installed = {
+                "python",
+                "typescript",
+                "javascript",
+                "go",
+                "lua",
+                "json",
+            },
+            sync_install = false,
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false,
+            },
+        }
+    },
     -- Comment stuff
     {
         'tpope/vim-commentary',
@@ -109,12 +201,19 @@ require("lazy").setup({
                 "ga",
                 "<Plug>(EasyAlign)",
                 mode = { "n", "v" },
-                desc = "EasyAlign"
             }
         },
     },
     -- Multiple Cursors
-    'mg979/vim-visual-multi',
+    {
+        'mg979/vim-visual-multi',
+        keys = { 
+            { "<C-n>" },
+            { "<C-Up>" },
+            { "<C-Down>" },
+        },
+    },
+    'tpope/vim-repeat',
     -- Neoclip
     {
         'AckslD/nvim-neoclip.lua',
@@ -129,19 +228,42 @@ require("lazy").setup({
         'voldikss/vim-floaterm',
         cmd = { 'FloatermNew', 'FloatermToggle', 'FloatermNext', 'FloatermPrev' },
         lazy = true,
+        init = function ()
+            vim.g.floaterm_gitcommit='floaterm'
+            vim.g.floaterm_autoinsert=1
+            vim.g.floaterm_width=0.8
+            vim.g.floaterm_height=0.8
+            vim.g.floaterm_wintitle=0
+            vim.g.floaterm_autoclose=1
+
+            if vim.loop.os_uname().sysname == "Windows_NT" then
+                vim.g.floaterm_shell='pwsh.exe'
+            end
+        end,
+        keys = {
+            { "<leader>tt", ":FloatermToggle<CR>" },
+            { "<leader>t;", ":FloatermNew<CR>" },
+            { "<leader>tg", ":FloatermNew lazygit<CR>" },
+            { "<F1>", ":FloatermToggle<CR>" },
+            { "<F2>", ":FloatermPrev<CR>" },
+            { "<F3>", ":FloatermNext<CR>" },
+            { "<F4>", ":FloatermNew<CR>" },
+            { "<F1>", "<C-\\><C-n>:FloatermToggle<CR>", mode = "t" },
+            { "<F2>", "<C-\\><C-n>:FloatermPrev<CR>", mode = "t" },
+            { "<F3>", "<C-\\><C-n>:FloatermNext<CR>", mode = "t" },
+            { "<F4>", "<C-\\><C-n>:FloatermNew<CR>", mode = "t" },
+        }
      },
-    -- File Icons
-    'kyazdani42/nvim-web-devicons',
 })
 
 -- Plugins configuration
-require 'user.plugins.telescope'
-require 'user.plugins.colorscheme'
-require 'user.plugins.nvimtree'
-require 'user.plugins.harpoon'
-require 'user.plugins.signify'
+-- require 'user.plugins.telescope'
+-- require 'user.plugins.colorscheme'
+-- require 'user.plugins.nvimtree'
+-- require 'user.plugins.harpoon'
+-- require 'user.plugins.signify'
 require 'user.plugins.cmp'
 require 'user.plugins.lsp'
-require 'user.plugins.treesitter'
+-- require 'user.plugins.treesitter'
 -- require 'user.plugins.leap'
-require 'user.plugins.floaterm'
+-- require 'user.plugins.floaterm'

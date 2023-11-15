@@ -1,12 +1,52 @@
--- Mappings
-vim.api.nvim_set_keymap("n", "<leader>ss", [[:lua require("harpoon.ui").toggle_quick_menu()<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>sa", [[:lua require("harpoon.mark").add_file()<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>su", [[:lua require("harpoon.ui").nav_file(1)<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>si", [[:lua require("harpoon.ui").nav_file(2)<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>so", [[:lua require("harpoon.ui").nav_file(3)<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>sp", [[:lua require("harpoon.ui").nav_file(4)<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>sq", [[:lua require("harpoon.ui").nav_file(5)<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>sw", [[:lua require("harpoon.ui").nav_file(6)<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>se", [[:lua require("harpoon.ui").nav_file(7)<CR> ]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>sr", [[:lua require("harpoon.ui").nav_file(8)<CR> ]], {noremap = true})
+local keys = {}
+local terms = 3
+local termKeys = { "q", "w", "e" }
+local binds = 4
+local bindKeys = { "u", "i", "o", "p" }
+
+table.insert(keys, {
+  "<leader>ss",
+  function()
+    require("harpoon.ui").toggle_quick_menu()
+  end,
+  desc = "Harpoon Menu",
+})
+
+table.insert(keys, {
+  "<leader>sa",
+  function()
+    require("harpoon.mark").add_file()
+  end,
+  desc = "Harpoon Add file",
+})
+
+for i = 1, terms do
+table.insert(keys, {
+  string.format("<leader>s", termKeys[i]),
+  function()
+    require("harpoon.term").gotoTerminal(i)
+    vim.api.nvim_command [[startinsert]]
+  end,
+  desc = "Harpoon quick split Terminal",
+})
+end
+
+for i = 1, binds do
+  table.insert(keys, {
+    string.format("<leader>s%s", bindKeys[i]),
+    function()
+      require("harpoon.ui").nav_file(i)
+    end,
+    desc = "Harpoon go to file " .. i,
+  })
+end
+
+return {
+  "ThePrimeagen/harpoon",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-lua/popup.nvim",
+  },
+  keys = keys,
+}
 

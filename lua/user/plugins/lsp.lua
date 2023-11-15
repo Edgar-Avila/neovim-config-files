@@ -34,28 +34,24 @@ require("mason-lspconfig").setup({
 
 -- Configure servers by default
 lspconfig.pyright.setup(config())
-lspconfig.omnisharp.setup(config())
 lspconfig.tsserver.setup(config())
-lspconfig.clangd.setup(config())
-lspconfig.volar.setup(config())
 lspconfig.cssls.setup(config())
 lspconfig.html.setup(config())
+lspconfig.gopls.setup(config())
+
+-------------------------------------------------------------------------------
+-- Configure servers with custom configuration
+-------------------------------------------------------------------------------
+
+-- Emmet
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.emmet_ls.setup(config({
     capabilities = capabilities,
     filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php' }
 }))
-lspconfig.gopls.setup(config())
-lspconfig.svelte.setup(config())
-lspconfig.rust_analyzer.setup(config())
-lspconfig.intelephense.setup(config())
--- if vim.loop.os_uname().sysname ~= "Windows_NT" then
-    -- Lsp installer can not install rust_analyzer on windows for some reason
-    -- lspconfig.rust_analyzer.setup(config())
--- end
 
--- Configure servers with custom configuration
+-- Lua
 lspconfig.lua_ls.setup(config({
     settings = {
         Lua = {
