@@ -22,3 +22,6 @@ vim.api.nvim_command("autocmd fileType javascript imap <buffer> <F5> <esc>:w<cr>
 vim.api.nvim_command("autocmd filetype typescript map <buffer> <f5> :w<cr>:!ts-node \"%\"<CR>")
 vim.api.nvim_command("autocmd fileType typescript imap <buffer> <F5> <esc>:w<cr>:!ts-node \"%\"<CR>")
 
+-- Set tab size for specific filetypes
+vim.api.nvim_command("autocmd Filetype typescriptreact setlocal ts=2 sw=2 expandtab")
+vim.api.nvim_command("autocmd Filetype javascriptreact setlocal ts=2 sw=2 expandtab")

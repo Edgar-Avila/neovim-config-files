@@ -8,6 +8,7 @@ return {
         -- Sources
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-buffer' },
+        { 'hrsh7th/cmp-cmdline' },
         { 'hrsh7th/cmp-path' },
     },
     event = "VeryLazy",
@@ -63,10 +64,10 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             mapping = cmp.mapping.preset.insert({
-                ['<C-k>'] = cmp.mapping.select_prev_item(),
-                ['<C-j>'] = cmp.mapping.select_next_item(),
-                ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-                ['<Tab>'] = cmp.mapping.select_next_item(),
+                -- ['<C-k>'] = cmp.mapping.select_prev_item(),
+                -- ['<C-j>'] = cmp.mapping.select_next_item(),
+                -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+                -- ['<Tab>'] = cmp.mapping.select_next_item(),
                 ['<C-u>'] = cmp.mapping.scroll_docs(-1),
                 ['<C-d>'] = cmp.mapping.scroll_docs(1),
                 ['<C-Space>'] = cmp.mapping.complete(),
@@ -93,10 +94,13 @@ return {
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'path' }
+                { name = 'cmdline'},
             }, {
-                { name = 'cmdline' }
-            })
+                { name = 'path' },
+            }),
         })
+
+        -- Remap tab in command mode
+        vim.keymap.set('c', '<tab>', '<C-z>', { silent = false })
     end
 }
