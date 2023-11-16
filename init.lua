@@ -1,5 +1,5 @@
 require('user.utils')
-require('user.plugins')
 require('user.settings')
+require('user.lazy')
 require('user.mappings')
 require('user.commands')
