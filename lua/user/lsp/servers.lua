@@ -3,6 +3,8 @@ local config = require('user.lsp.config')
 
 -- Configure servers by default
 lspconfig.pyright.setup(config())
+lspconfig.tailwindcss.setup(config())
+lspconfig.texlab.setup(config())
 lspconfig.tsserver.setup(config())
 lspconfig.cssls.setup(config())
 lspconfig.html.setup(config())
