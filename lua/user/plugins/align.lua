@@ -12,5 +12,4 @@ return {
             mode = "x",
         }
     },
-    lazy = false,
 }
