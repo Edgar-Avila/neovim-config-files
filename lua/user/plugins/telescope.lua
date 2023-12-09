@@ -52,5 +52,6 @@ return {
         { "<leader>gs",  "<cmd>Telescope git_status<cr>", },
         { "<leader>gb",  "<cmd>Telescope git_branches<cr>", },
         { "<leader>gf",  "<cmd>Telescope git_files<cr>", },       -- Tracked by git
-    }
+    },
+    cmd = { "Telescope" },
 }
