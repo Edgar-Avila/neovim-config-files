@@ -3,6 +3,12 @@ local config = require('user.lsp.config')
 
 -- Configure servers by default
 lspconfig.pyright.setup(config())
+lspconfig.clangd.setup(config({
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16"
+    }
+}))
 lspconfig.tailwindcss.setup(config())
 lspconfig.texlab.setup(config())
 lspconfig.tsserver.setup(config())

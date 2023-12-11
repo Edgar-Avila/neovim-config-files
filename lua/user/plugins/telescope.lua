@@ -5,6 +5,7 @@ return {
         { 'nvim-lua/popup.nvim' },
         { 'kyazdani42/nvim-web-devicons' },
         { 'AckslD/nvim-neoclip.lua' },
+        { 'nvim-telescope/telescope-project.nvim' },
     },
     config = function()
         local ignored = { "node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "build/*", "dist/*", "vendor\\*",
@@ -18,7 +19,7 @@ return {
 
         require("telescope").setup({
             defaults = {
-                file_ignore_patterns = ignored
+                file_ignore_patterns = ignored,
             },
             pickers = {
                 colorscheme = {
@@ -27,7 +28,9 @@ return {
             },
         })
         require('neoclip').setup()
-        require("telescope").load_extension('neoclip')
+
+        -- require("telescope").load_extension('neoclip')
+        -- require("telescope").load_extension('project')
     end,
     keys = {
         { "<leader>ff",  "<cmd>Telescope find_files<cr>", },                 -- Files
@@ -39,12 +42,13 @@ return {
         { "<leader>fr",  "<cmd>Telescope oldfiles<cr>", },                   -- Recent
         { "<leader>ft",  "<cmd>Telescope builtin<cr>", },                    -- Telescope options
         { "<leader>fy",  "<cmd>Telescope neoclip plus<cr>", },               -- Tracked by git
-        { "<leader>fpa", "<cmd>Artisan<cr>", },                              -- Artisan
+        { "<leader>fa",  "<cmd>Artisan<cr>", },                              -- Artisan
+        { "<leader>fp",  "<cmd>Telescope project<cr>", },                    -- Projects
 
         -- Lsp mappings
         { "<leader>fR",  "<cmd>Telescope lsp_references<cr>", },
         { "<leader>fs",  "<cmd>Telescope lsp_document_symbols<cr>", },
-        { "<leader>fS",  "<cmd>Telescope lsp_workspace_symbols<cr>", },
+        { "<leader>fS",  "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", },
         { "<leader>fd",  "<cmd>Telescope diagnostics<cr>", },
 
         -- Git mappings
