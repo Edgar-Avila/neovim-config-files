@@ -42,7 +42,6 @@ return {
         { "<leader>fr",  "<cmd>Telescope oldfiles<cr>", },                   -- Recent
         { "<leader>ft",  "<cmd>Telescope builtin<cr>", },                    -- Telescope options
         { "<leader>fy",  "<cmd>Telescope neoclip plus<cr>", },               -- Tracked by git
-        { "<leader>fa",  "<cmd>Artisan<cr>", },                              -- Artisan
         { "<leader>fp",  "<cmd>Telescope project<cr>", },                    -- Projects
 
         -- Lsp mappings

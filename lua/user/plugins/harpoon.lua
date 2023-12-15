@@ -1,8 +1,5 @@
 local keys = {}
-local terms = 3
-local termKeys = { "q", "w", "e" }
-local binds = 4
-local bindKeys = { "u", "i", "o", "p" }
+local bindKeys = { "u", "i", "o", "p", "j", "k", "l", ";" }
 
 table.insert(keys, {
   "<leader>ss",
@@ -20,18 +17,7 @@ table.insert(keys, {
   desc = "Harpoon Add file",
 })
 
-for i = 1, terms do
-table.insert(keys, {
-  string.format("<leader>s", termKeys[i]),
-  function()
-    require("harpoon.term").gotoTerminal(i)
-    vim.api.nvim_command [[startinsert]]
-  end,
-  desc = "Harpoon quick split Terminal",
-})
-end
-
-for i = 1, binds do
+for i = 1, #bindKeys do
   table.insert(keys, {
     string.format("<leader>s%s", bindKeys[i]),
     function()
