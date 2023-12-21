@@ -19,6 +19,6 @@ return {
             }
         })
         vim.g.lightline = { colorscheme = "catppuccin" }
-        vim.cmd.colorscheme("catppuccin")
+        -- vim.cmd.colorscheme("catppuccin")
     end
 }

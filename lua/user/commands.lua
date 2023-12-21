@@ -11,8 +11,8 @@ vim.api.nvim_command("autocmd filetype rust map <buffer> <f5> :w<cr>:exec \"!car
 vim.api.nvim_command("autocmd fileType rust imap <buffer> <F5> <esc>:w<cr>:exec \"!cargo run\"<CR>")
 
 -- Run cpp code
-vim.api.nvim_command("autocmd filetype cpp map <buffer> <f5> :w<cr>:exec \"!cmake .\"<CR>")
-vim.api.nvim_command("autocmd fileType cpp imap <buffer> <F5> <esc>:w<cr>:exec \"!cmake .\"<CR>")
+vim.api.nvim_command("autocmd filetype cpp map <buffer> <f5> :w<cr>:exec \"!g++ % -o main.exe && .\\\\main.exe\"<CR>")
+vim.api.nvim_command("autocmd fileType cpp imap <buffer> <F5> <esc>:w<cr>:exec \"!g++ % -o main.exe && .\\\\main.exe\"<CR>")
 
 -- Run js code
 vim.api.nvim_command("autocmd filetype javascript map <buffer> <f5> :w<cr>:!node \"%\"<CR>")
