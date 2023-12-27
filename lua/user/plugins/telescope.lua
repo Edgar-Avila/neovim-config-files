@@ -43,6 +43,7 @@ return {
         { "<leader>ft",  "<cmd>Telescope builtin<cr>", },                    -- Telescope options
         { "<leader>fy",  "<cmd>Telescope neoclip plus<cr>", },               -- Tracked by git
         { "<leader>fp",  "<cmd>Telescope project<cr>", },                    -- Projects
+        { "<leader>fn",  "<cmd>Telescope notify<cr>", },                     -- Notify history
 
         -- Lsp mappings
         { "<leader>fR",  "<cmd>Telescope lsp_references<cr>", },
