@@ -2,14 +2,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     opts = {
-        ensure_installed = {
-            "python",
-            "typescript",
-            "javascript",
-            "go",
-            "lua",
-            "json",
-        },
+        auto_install = true,
         sync_install = false,
         highlight = {
             enable = true,
