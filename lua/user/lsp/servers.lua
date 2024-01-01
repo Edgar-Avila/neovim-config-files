@@ -15,6 +15,7 @@ lspconfig.tsserver.setup(config())
 lspconfig.cssls.setup(config())
 lspconfig.html.setup(config())
 lspconfig.gopls.setup(config())
+lspconfig.rust_analyzer.setup(config())
 lspconfig.svelte.setup(config())
 
 -------------------------------------------------------------------------------

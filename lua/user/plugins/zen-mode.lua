@@ -9,7 +9,7 @@ return {
         },
     },
     init = function()
-        vim.cmd [[highlight ZenBg guibg=#000000 ctermbg=black]]
+        vim.cmd [[highlight ZenBg guibg=black ctermbg=black]]
     end,
     keys = {
         { "<leader>z", "<cmd>ZenMode<CR>" },
