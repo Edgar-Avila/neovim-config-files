@@ -3,6 +3,10 @@ local config = require('user.lsp.config')
 
 -- Configure servers by default
 lspconfig.pyright.setup(config())
+lspconfig.prismals.setup(config())
+lspconfig.elixirls.setup(config())
+lspconfig.solargraph.setup(config())
+lspconfig.jsonls.setup(config())
 lspconfig.clangd.setup(config({
     cmd = {
         "clangd",
@@ -25,9 +29,9 @@ lspconfig.svelte.setup(config())
 -- Emmet
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-lspconfig.emmet_ls.setup(config({
+lspconfig.emmet_language_server.setup(config({
     capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php' }
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php', 'heex' }
 }))
 
 -- Lua

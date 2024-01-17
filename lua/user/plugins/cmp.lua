@@ -3,8 +3,13 @@ return {
     dependencies = {
         { 'onsails/lspkind.nvim' },
         -- Snippets
-        { 'hrsh7th/cmp-vsnip' },
-        { 'hrsh7th/vim-vsnip' },
+        {
+            'L3MON4D3/LuaSnip',
+            dependencies = {
+                { "rafamadriz/friendly-snippets" },
+            }
+        },
+        { 'saadparwaiz1/cmp_luasnip' },
         -- Sources
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-buffer' },
@@ -15,48 +20,19 @@ return {
     config = function()
         local cmp = require 'cmp'
         local lspkind = require 'lspkind'
+        require("luasnip.loaders.from_vscode").lazy_load()
         cmp.setup({
+            preselect = cmp.PreselectMode.Item,
             formatting = {
                 format = lspkind.cmp_format({
-                    mode = "symbol_text",
-                    symbol_map = {
-                        Text = "",
-                        Method = "",
-                        Function = "",
-                        Constructor = "",
-                        Field = "ﰠ",
-                        Variable = "",
-                        Class = "ﴯ",
-                        Interface = "",
-                        Module = "",
-                        Property = "ﰠ",
-                        Unit = "塞",
-                        Value = "",
-                        Enum = "",
-                        Keyword = "",
-                        Snippet = "",
-                        Color = "",
-                        File = "",
-                        Reference = "",
-                        Folder = "",
-                        EnumMember = "",
-                        Constant = "",
-                        Struct = "פּ",
-                        Event = "",
-                        Operator = "",
-                        TypeParameter = ""
-                    },
-                    menu = ({
-                        buffer = "[Buffer]",
-                        nvim_lsp = "[LSP]",
-                        vsnip = "[VSnip]",
-                        path = "[Path]",
-                    })
+                    mode = 'symbol',
+                    maxwidth = 50,
+                    ellipsis_char = '...',
                 }),
             },
             snippet = {
                 expand = function(args)
-                    vim.fn["vsnip#anonymous"](args.body)
+                    require('luasnip').lsp_expand(args.body)
                 end,
             },
             window = {
@@ -64,19 +40,37 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             mapping = cmp.mapping.preset.insert({
-                -- ['<C-k>'] = cmp.mapping.select_prev_item(),
-                -- ['<C-j>'] = cmp.mapping.select_next_item(),
-                -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-                -- ['<Tab>'] = cmp.mapping.select_next_item(),
                 ['<C-u>'] = cmp.mapping.scroll_docs(-1),
                 ['<C-d>'] = cmp.mapping.scroll_docs(1),
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<C-h>'] = cmp.mapping(
+                    function(callback)
+                        local luasnip = require('luasnip')
+                        if luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            callback()
+                        end
+                    end,
+                    { 'i', 's' }
+                ),
+                ['<C-l>'] = cmp.mapping(
+                    function(callback)
+                        local luasnip = require('luasnip')
+                        if luasnip.jumpable(1) then
+                            luasnip.jump(1)
+                        else
+                            callback()
+                        end
+                    end,
+                    { 'i', 's' }
+                )
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                { name = 'vsnip' },
+                { name = 'luasnip' },
                 { name = 'path' },
                 { name = 'buffer' }
             })
@@ -94,7 +88,7 @@ return {
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'cmdline'},
+                { name = 'cmdline' },
             }, {
                 { name = 'path' },
             }),
