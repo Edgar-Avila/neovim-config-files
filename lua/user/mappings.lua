@@ -42,7 +42,7 @@ vim.api.nvim_set_keymap("i", "[",     "[]<left>",     { noremap = true })
 vim.api.nvim_set_keymap("i", "{<CR>", "{<CR>}<ESC>O", { noremap = true })
 
 -- Resize windows
-vim.api.nvim_set_keymap("n", "<C-right>", "<cmd>vertical resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-left>", "<cmd>vertical resize -2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-up>", "<cmd>horizontal resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-down>", "<cmd>horizontal resize -2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<S-right>", "<cmd>vertical resize +2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<S-left>", "<cmd>vertical resize -2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<S-up>", "<cmd>horizontal resize +2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<S-down>", "<cmd>horizontal resize -2<CR>", { noremap = true })

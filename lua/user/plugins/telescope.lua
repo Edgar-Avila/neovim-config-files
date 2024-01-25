@@ -8,8 +8,8 @@ return {
         { 'nvim-telescope/telescope-project.nvim' },
     },
     config = function()
-        local ignored = { "node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "build/*", "dist/*", "vendor\\*",
-            "bin\\*", "obj\\*" }
+        local ignored = { "node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "build/*", "dist/*", "vendor/*",
+            "bin/*", "obj/*", "deps/*", "_build/*" }
 
         if vim.loop.os_uname().sysname == "Windows_NT" then
             for i = 1, #ignored do
