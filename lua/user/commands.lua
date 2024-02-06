@@ -40,3 +40,9 @@ vim.api.nvim_command("autocmd fileType typescript imap <buffer> <F5> <esc>:w<cr>
 vim.api.nvim_command("autocmd Filetype typescriptreact setlocal ts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd Filetype javascriptreact setlocal ts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd Filetype cpp setlocal ts=2 sw=2 expandtab")
+
+-- Run bash code
+if vim.loop.os_uname().sysname == "Linux" then
+    vim.api.nvim_command("autocmd filetype sh map <buffer> <F5> :w<cr>:exec \"!bash\" shellescape(@%, 1)<cr>")
+    vim.api.nvim_command("autocmd fileType sh imap <buffer> <F5> <esc>:w<cr>:exec \"!bash\" shellescape(@%, 1)<cr>")
+end
