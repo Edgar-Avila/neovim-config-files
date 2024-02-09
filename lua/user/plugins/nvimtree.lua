@@ -2,7 +2,7 @@ return {
     'kyazdani42/nvim-tree.lua',
     keys = {
         {
-            "<leader>n",
+            "<leader>e",
             ":NvimTreeToggle<CR>",
         }
     },

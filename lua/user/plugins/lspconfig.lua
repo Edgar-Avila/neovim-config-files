@@ -21,5 +21,6 @@ return {
     },
     config = function()
         require('user.lsp')
-    end
+    end,
+    event = "BufReadPre",
 }
