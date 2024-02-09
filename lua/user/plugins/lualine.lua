@@ -4,6 +4,7 @@ return {
     opts = {
         options = {
             theme = 'horizon',
+            globalstatus = true,
         }
     },
     config = true,
