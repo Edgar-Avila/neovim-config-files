@@ -46,3 +46,6 @@ if vim.loop.os_uname().sysname == "Linux" then
     vim.api.nvim_command("autocmd filetype sh map <buffer> <F5> :w<cr>:exec \"!bash\" shellescape(@%, 1)<cr>")
     vim.api.nvim_command("autocmd fileType sh imap <buffer> <F5> <esc>:w<cr>:exec \"!bash\" shellescape(@%, 1)<cr>")
 end
+
+-- Set angular filetypes
+vim.api.nvim_command("autocmd BufRead,BufEnter *.component.html set filetype=angular")
