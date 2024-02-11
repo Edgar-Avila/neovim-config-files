@@ -22,5 +22,5 @@ return {
     config = function()
         require('stack.lsp')
     end,
-    event = "BufReadPre",
+    event = "VeryLazy",
 }
