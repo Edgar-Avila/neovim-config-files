@@ -16,7 +16,7 @@ FormatterPicker = function(opts)
 
     local clients = {}
     for _, client in pairs(buf_clients) do
-        if client.server_capabilities and client.server_capabilities.documentFormattingProvider then
+        if client.supports_method("textDocument/formatting") then
             clients[#clients + 1] = client.name
         end
     end
