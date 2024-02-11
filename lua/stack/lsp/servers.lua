@@ -13,7 +13,16 @@ lspconfig.clangd.setup(config({
         "--offset-encoding=utf-16"
     }
 }))
-lspconfig.tailwindcss.setup(config())
+lspconfig.tailwindcss.setup(config({
+    filetypes = {
+        "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge",
+        "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html",
+        "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php",
+        "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss",
+        "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ",
+        "angular"
+    },
+}))
 lspconfig.texlab.setup(config())
 lspconfig.tsserver.setup(config())
 lspconfig.cssls.setup(config())
@@ -33,7 +42,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.emmet_language_server.setup(config({
     capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php', 'heex' }
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php', 'heex', 'angular' }
 }))
 
 -- Lua
@@ -53,4 +62,3 @@ lspconfig.lua_ls.setup(config({
         }
     }
 }))
-
