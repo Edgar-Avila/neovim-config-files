@@ -28,6 +28,7 @@ return {
             },
         })
         require('neoclip').setup()
+        require('user.utils.format_picker');
 
         -- require("telescope").load_extension('neoclip')
         -- require("telescope").load_extension('project')
@@ -51,6 +52,7 @@ return {
         { "<leader>fs",  "<cmd>Telescope lsp_document_symbols<cr>", },
         { "<leader>fS",  "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", },
         { "<leader>fd",  "<cmd>Telescope diagnostics<cr>", },
+        { "<leader>fm",  "<cmd>lua FormatterPicker()<cr>", },
 
         -- Git mappings
         { "<leader>gc",  "<cmd>Telescope git_commits<cr>", },
