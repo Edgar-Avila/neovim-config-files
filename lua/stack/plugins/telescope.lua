@@ -28,7 +28,7 @@ return {
             },
         })
         require('neoclip').setup()
-        require('user.utils.format_picker');
+        require('stack.utils.format_picker');
 
         -- require("telescope").load_extension('neoclip')
         -- require("telescope").load_extension('project')

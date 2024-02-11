@@ -20,7 +20,7 @@ return {
         },
     },
     config = function()
-        require('user.lsp')
+        require('stack.lsp')
     end,
     event = "BufReadPre",
 }

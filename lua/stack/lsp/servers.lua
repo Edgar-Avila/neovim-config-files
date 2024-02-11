@@ -1,5 +1,5 @@
 local lspconfig = require('lspconfig')
-local config = require('user.lsp.config')
+local config = require('stack.lsp.config')
 
 -- Configure servers by default
 lspconfig.pyright.setup(config())
@@ -22,7 +22,7 @@ lspconfig.gopls.setup(config())
 lspconfig.rust_analyzer.setup(config())
 lspconfig.svelte.setup(config())
 lspconfig.bashls.setup(config())
--- lspconfig.angularls.setup(config())
+lspconfig.angularls.setup(config())
 
 -------------------------------------------------------------------------------
 -- Configure servers with custom configuration
