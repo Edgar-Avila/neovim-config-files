@@ -46,3 +46,6 @@ vim.api.nvim_set_keymap("n", "<S-right>", "<cmd>vertical resize +2<CR>", { norem
 vim.api.nvim_set_keymap("n", "<S-left>", "<cmd>vertical resize -2<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<S-up>", "<cmd>horizontal resize +2<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<S-down>", "<cmd>horizontal resize -2<CR>", { noremap = true })
+
+-- Close quickfix
+vim.api.nvim_set_keymap("n", "<leader>q", ":cclose<CR>", { noremap = true })
