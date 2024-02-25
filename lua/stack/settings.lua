@@ -21,4 +21,6 @@ vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.conceallevel = 2
+vim.opt.foldenable = false
 vim.g.mapleader = ' '

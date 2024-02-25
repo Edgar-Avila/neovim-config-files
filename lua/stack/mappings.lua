@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>w", "<C-w>", { noremap = true })
 
 -- Fast edit init.lua "cd init.lua"
-vim.api.nvim_set_keymap("n", "<leader>cdi", ":e $MYVIMRC<CR>:cd %:p:h<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>cdi", ":exe 'cd ' . fnamemodify($MYVIMRC, ':p:h')<CR>:e $MYVIMRC<CR>", { noremap = true })
 
 -- Change current working directory "cd file"
 vim.api.nvim_set_keymap("n", "<leader>cdf", ":cd %:p:h<CR>", { noremap = true })
@@ -49,3 +49,6 @@ vim.api.nvim_set_keymap("n", "<S-down>", "<cmd>horizontal resize -2<CR>", { nore
 
 -- Close quickfix
 vim.api.nvim_set_keymap("n", "<leader>q", ":cclose<CR>", { noremap = true })
+
+-- Make ctrl + c the same as escape
+vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })

@@ -39,6 +39,9 @@ vim.api.nvim_command("autocmd fileType typescript imap <buffer> <F5> <esc>:w<cr>
 -- Set tab size for specific filetypes
 vim.api.nvim_command("autocmd Filetype typescriptreact setlocal ts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd Filetype javascriptreact setlocal ts=2 sw=2 expandtab")
+vim.api.nvim_command("autocmd Filetype javascript setlocal ts=2 sw=2 expandtab")
+vim.api.nvim_command("autocmd Filetype typescript setlocal ts=2 sw=2 expandtab")
+vim.api.nvim_command("autocmd Filetype vue setlocal ts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd Filetype cpp setlocal ts=2 sw=2 expandtab")
 
 -- Run bash code
@@ -47,5 +50,6 @@ if vim.loop.os_uname().sysname == "Linux" then
     vim.api.nvim_command("autocmd fileType sh imap <buffer> <F5> <esc>:w<cr>:exec \"!bash\" shellescape(@%, 1)<cr>")
 end
 
--- Set angular filetypes
+-- Set filetypes
 vim.api.nvim_command("autocmd BufRead,BufEnter *.component.html set filetype=angular")
+vim.api.nvim_command("autocmd BufRead,BufEnter *.templ set filetype=templ")
