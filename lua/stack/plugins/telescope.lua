@@ -55,10 +55,10 @@ return {
         { "<leader>fm",  "<cmd>lua FormatterPicker()<cr>", },
 
         -- Git mappings
-        { "<leader>gc",  "<cmd>Telescope git_commits<cr>", },
-        { "<leader>gs",  "<cmd>Telescope git_status<cr>", },
-        { "<leader>gb",  "<cmd>Telescope git_branches<cr>", },
-        { "<leader>gf",  "<cmd>Telescope git_files<cr>", },       -- Tracked by git
+        { "<leader>gc",  "<cmd>Telescope git_commits<cr>", },                -- Git commits
+        { "<leader>gb",  "<cmd>Telescope git_branches<cr>", },               -- Git branches
+        { "<leader>gf",  "<cmd>Telescope git_files<cr>", },                  -- Git files
+        { "<leader>gS",  "<cmd>Telescope git_status<cr>", },                 -- Git status
     },
     cmd = { "Telescope" },
 }
