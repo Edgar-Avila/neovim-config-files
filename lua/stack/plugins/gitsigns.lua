@@ -10,6 +10,8 @@ return {
         { '<leader>ghu', ':Gitsigns undo_stage_hunk<CR>' },     -- Git hunk unstage
         { '<leader>ghv', ':Gitsigns select_hunk<CR>' },         -- Git hunk visual
         { '<leader>ghr', ':Gitsigns reset_hunk<CR>' },          -- Git hunk reset
+        { ']h', ':Gitsigns next_hunk<CR>' },                    -- Git next hunk
+        { '[h', ':Gitsigns prev_hunk<CR>' },                    -- Git previous hunk
     },
     config = true,
 }
