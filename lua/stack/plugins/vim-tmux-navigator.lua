@@ -1,5 +1,8 @@
 return {
     "christoomey/vim-tmux-navigator",
+    cond = function ()
+        return vim.loop.os_uname().sysname ~= "Windows_NT"
+    end,
     cmd = {
         "TmuxNavigateLeft",
         "TmuxNavigateDown",
