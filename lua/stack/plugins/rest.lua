@@ -4,7 +4,17 @@ return {
     ft = 'http',
     config = function()
         local rest_nvim = require "rest-nvim"
-        rest_nvim.setup()
+        rest_nvim.setup({
+            result = {
+                show_curl_command = true,
+                formatters = {
+                    json = "jq",
+                    html = function(body)
+                        return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
+                    end
+                },
+            }
+        })
 
         vim.api.nvim_create_autocmd("FileType", {
             pattern = "http",
