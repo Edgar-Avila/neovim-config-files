@@ -36,9 +36,6 @@ return {
         require('neoclip').setup()
         require('stack.utils.format_picker');
         pcall(require('telescope').load_extension, 'ui-select')
-
-        -- require("telescope").load_extension('neoclip')
-        -- require("telescope").load_extension('project')
     end,
     keys = {
         { "<leader>ff", "<cmd>Telescope find_files<cr>", },              -- Files
@@ -68,4 +65,5 @@ return {
         { "<leader>gS", "<cmd>Telescope git_status<cr>", },    -- Git status
     },
     cmd = { "Telescope" },
+    event = "VeryLazy",
 }
