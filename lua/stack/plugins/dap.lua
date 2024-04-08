@@ -1,7 +1,7 @@
 return {
     "jay-babu/mason-nvim-dap.nvim",
     keys = {
-        { "<leader>db",  "<CMD>lua require('dap').toggle_breakpoint()<CR>" },
+        { "<leader>dp",  "<CMD>lua require('dap').toggle_breakpoint()<CR>" },
         { "<leader>dn",  "<CMD>lua require('dap').continue()<CR>" },
         { "<leader>dk",  "<CMD>lua require('dap').step_out()<CR>" },
         { "<leader>dj",  "<CMD>lua require('dap').step_over()<CR>" },
