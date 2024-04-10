@@ -53,6 +53,7 @@ end
 -- Set filetypes
 vim.api.nvim_command("autocmd BufRead,BufEnter *.component.html set filetype=angular")
 vim.api.nvim_command("autocmd BufRead,BufEnter *.templ set filetype=templ")
+vim.api.nvim_command("autocmd BufRead,BufEnter *.blade.php set filetype=blade")
 
 -- Remove trailing whitespace on save
 vim.api.nvim_command("autocmd BufWritePre * %s/\\s\\+$//e")

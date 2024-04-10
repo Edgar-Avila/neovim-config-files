@@ -1,6 +1,6 @@
 local lspconfig = require('lspconfig')
 local config = require('stack.lsp.config')
-
+--
 -- Configure servers by default
 lspconfig.pyright.setup(config())
 lspconfig.prismals.setup(config())
@@ -31,6 +31,9 @@ lspconfig.gopls.setup(config())
 lspconfig.rust_analyzer.setup(config())
 lspconfig.svelte.setup(config())
 lspconfig.bashls.setup(config())
+lspconfig.phpactor.setup(config({
+    filetypes = { "php", "blade" },
+}))
 -- lspconfig.angularls.setup(config())
 
 -------------------------------------------------------------------------------
