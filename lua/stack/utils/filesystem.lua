@@ -6,7 +6,6 @@ function ExistsInCwd(nameToCheck)
 
     -- Check if specified file or directory exists
     local fullNameToCheck = cwDir .. "/" .. nameToCheck
-    print("Checking for: \"" .. fullNameToCheck .. "\"")
     for _, cwdItem in pairs(cwdContent) do
         if cwdItem == fullNameToCheck then
             return true
