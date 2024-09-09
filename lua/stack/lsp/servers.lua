@@ -45,7 +45,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.emmet_language_server.setup(config({
     capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php', 'heex', 'angular', 'vue', 'astro', 'blade', 'svelte', 'templ' }
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'php', 'heex', 'angular', 'vue', 'astro', 'blade', 'svelte', 'templ', "elixir", "eelixir", "html-eex", }
 }))
 
 -- Lua
