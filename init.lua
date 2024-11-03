@@ -1,5 +1,6 @@
 require('stack.utils')
 require('stack.settings')
+require('stack.filetypes')
 require('stack.lazy')
 require('stack.mappings')
 require('stack.commands')
