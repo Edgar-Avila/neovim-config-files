@@ -31,7 +31,7 @@ lspconfig.gopls.setup(config())
 lspconfig.rust_analyzer.setup(config())
 lspconfig.svelte.setup(config())
 lspconfig.bashls.setup(config())
-lspconfig.phpactor.setup(config({
+lspconfig.intelephense.setup(config({
     filetypes = { "php", "blade" },
 }))
 -- lspconfig.angularls.setup(config())

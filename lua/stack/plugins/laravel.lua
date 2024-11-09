@@ -16,11 +16,21 @@ return {
         { "<leader>lc", "<cmd>Telescope find_files search_dirs=app/Http/Controllers<cr>"},
         { "<leader>lm", "<cmd>Telescope find_files search_dirs=app/Models<cr>"},
         { "<leader>ld", "<cmd>Telescope find_files search_dirs=database/migrations<cr>"},
+        { "<leader>lf", "<cmd>Telescope find_files search_dirs=database/factories<cr>"},
+        { "<leader>ls", "<cmd>Telescope find_files search_dirs=database/seeders<cr>"},
+        { "<leader>lj", "<cmd>Telescope find_files search_dirs=app/Http/Resources<cr>"},
+        { "<leader>lt", "<cmd>Telescope find_files search_dirs=tests<cr>"},
         { "<leader>lw", "<cmd>e routes/web.php<cr>"},
+        { "<leader>le", "<cmd>e routes/api.php<cr>"},
     },
     cond = function()
-        return ExistsInCwd("artisan")
+        return true
+        -- return ExistsInCwd("artisan")
     end,
     event = { "VeryLazy" },
-    config = true,
+    config = function ()
+        require('laravel').setup({
+            lsp_server = "intelephense",
+        })
+    end,
 }
