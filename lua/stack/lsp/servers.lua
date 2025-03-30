@@ -24,7 +24,7 @@ lspconfig.tailwindcss.setup(config({
     },
 }))
 lspconfig.texlab.setup(config())
-lspconfig.tsserver.setup(config())
+lspconfig.ts_ls.setup(config())
 lspconfig.cssls.setup(config())
 lspconfig.html.setup(config())
 lspconfig.gopls.setup(config())

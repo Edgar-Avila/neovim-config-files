@@ -24,8 +24,8 @@ return {
         { "<leader>le", "<cmd>e routes/api.php<cr>"},
     },
     cond = function()
-        return true
-        -- return ExistsInCwd("artisan")
+        -- return true
+        return ExistsInCwd("artisan")
     end,
     event = { "VeryLazy" },
     config = function ()
