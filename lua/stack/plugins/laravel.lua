@@ -6,6 +6,7 @@ return {
         "tpope/vim-dotenv",
         "MunifTanjim/nui.nvim",
         "nvimtools/none-ls.nvim",
+        "kevinhwang91/promise-async",
     },
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     keys = {
@@ -19,6 +20,7 @@ return {
         { "<leader>lf", "<cmd>Telescope find_files search_dirs=database/factories<cr>"},
         { "<leader>ls", "<cmd>Telescope find_files search_dirs=database/seeders<cr>"},
         { "<leader>lj", "<cmd>Telescope find_files search_dirs=app/Http/Resources<cr>"},
+        { "<leader>li", "<cmd>Telescope find_files search_dirs=resources/js<cr>"},
         { "<leader>lt", "<cmd>Telescope find_files search_dirs=tests<cr>"},
         { "<leader>lw", "<cmd>e routes/web.php<cr>"},
         { "<leader>le", "<cmd>e routes/api.php<cr>"},

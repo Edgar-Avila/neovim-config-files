@@ -2,6 +2,8 @@ local lspconfig = require('lspconfig')
 local config = require('stack.lsp.config')
 --
 -- Configure servers by default
+lspconfig.omnisharp.setup(config())
+lspconfig.marksman.setup(config({}, true))
 lspconfig.pyright.setup(config())
 lspconfig.prismals.setup(config())
 lspconfig.elixirls.setup(config())
@@ -10,7 +12,8 @@ lspconfig.jsonls.setup(config())
 lspconfig.clangd.setup(config({
     cmd = {
         "clangd",
-        "--offset-encoding=utf-16"
+        "--offset-encoding=utf-16",
+        "--fallback-style=webkit"
     }
 }))
 lspconfig.tailwindcss.setup(config({
@@ -22,7 +25,15 @@ lspconfig.tailwindcss.setup(config({
         "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ",
         "angular"
     },
+    init_options = {
+        userLanguages = {
+            elixir = "html-eex",
+            eelixir = "html-eex",
+            heex = "html-eex",
+        },
+    },
 }))
+
 lspconfig.texlab.setup(config())
 lspconfig.ts_ls.setup(config())
 lspconfig.cssls.setup(config())

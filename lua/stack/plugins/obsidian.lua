@@ -23,8 +23,16 @@ return {
   opts = {
     workspaces = {
       {
-        name = "notes",
-        path = "~/notes",
+        name = "uni",
+        path = "~/notes/uni",
+      },
+      {
+        name = "dev",
+        path = "~/notes/dev",
+      },
+      {
+        name = "personal",
+        path = "~/notes/personal",
       },
     },
 

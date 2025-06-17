@@ -22,7 +22,7 @@ return {
         local lspkind = require 'lspkind'
         require("luasnip.loaders.from_vscode").lazy_load()
         cmp.setup({
-            preselect = cmp.PreselectMode.Item,
+            preselect = cmp.PreselectMode.None,
             formatting = {
                 format = lspkind.cmp_format({
                     mode = 'symbol',
@@ -44,7 +44,7 @@ return {
                 ['<C-d>'] = cmp.mapping.scroll_docs(1),
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<CR>'] = cmp.mapping.confirm({ select = false }),
                 ['<C-h>'] = cmp.mapping(
                     function(callback)
                         local luasnip = require('luasnip')

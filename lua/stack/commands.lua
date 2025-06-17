@@ -26,7 +26,11 @@ else
     vim.api.nvim_command("autocmd fileType cpp imap <buffer> <F5> <esc>:w<cr>:exec \"!g++ % -g -o main && ./main\"<CR>")
     vim.api.nvim_command("autocmd filetype cpp map <buffer> <F6> :w<cr>:exec \"!g++ % -g -o main\"<CR>")
     vim.api.nvim_command("autocmd fileType cpp imap <buffer> <F6> <esc>:w<cr>:exec \"!g++ % -g -o main\"<CR>")
+    vim.api.nvim_command("autocmd filetype cpp map <buffer> <leader>bu :w<cr>:exec \"!make\"<CR>")
 end
+
+vim.api.nvim_command("autocmd filetype c map <buffer> <leader>bu :w<cr>:exec \"!make\"<CR>")
+vim.api.nvim_command("autocmd filetype c map <buffer> <leader>br :w<cr>:exec \"!make && ./main\"<CR>")
 
 -- Run js code
 vim.api.nvim_command("autocmd filetype javascript map <buffer> <F5> :w<cr>:!node \"%\"<CR>")
@@ -42,7 +46,8 @@ vim.api.nvim_command("autocmd Filetype javascriptreact setlocal ts=2 sw=2 expand
 vim.api.nvim_command("autocmd Filetype javascript setlocal ts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd Filetype typescript setlocal ts=2 sw=2 expandtab")
 vim.api.nvim_command("autocmd Filetype vue setlocal ts=2 sw=2 expandtab")
-vim.api.nvim_command("autocmd Filetype cpp setlocal ts=2 sw=2 expandtab")
+-- vim.api.nvim_command("autocmd Filetype cpp setlocal ts=2 sw=2 expandtab")
+-- vim.api.nvim_command("autocmd Filetype c setlocal ts=2 sw=2 expandtab")
 
 -- Run bash code
 if vim.loop.os_uname().sysname == "Linux" then
@@ -54,6 +59,9 @@ end
 vim.api.nvim_command("autocmd BufRead,BufEnter *.component.html set filetype=angular")
 vim.api.nvim_command("autocmd BufRead,BufEnter *.templ set filetype=templ")
 vim.api.nvim_command("autocmd BufRead,BufEnter *.blade.php set filetype=blade")
+
+-- Spell check spanish md files
+vim.api.nvim_command("autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es")
 
 -- Remove trailing whitespace on save
 -- vim.api.nvim_command("autocmd BufWritePre * %s/\\s\\+$//e")

@@ -9,8 +9,8 @@ return {
         { 'nvim-telescope/telescope-ui-select.nvim' },
     },
     config = function()
-        local ignored = { "node_modules/.*", "env/.*", "__pycache__/*", "target/.*", "build/*", "dist/*", "vendor/*",
-            "bin/*", "obj/*", "deps/*", "_build/*" }
+        local ignored = { "node_modules/", "env/", "__pycache__/", "target/", "build/", "dist/", "vendor/",
+            "bin/", "obj/", "deps/", "_build/" }
 
         if vim.loop.os_uname().sysname == "Windows_NT" then
             for i = 1, #ignored do
@@ -50,6 +50,7 @@ return {
         { "<leader>fp", "<cmd>Telescope project<cr>", },                 -- Projects
         { "<leader>fn", "<cmd>Telescope notify<cr>", },                  -- Notify history
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", },                 -- Keymaps
+        { "<leader>fu", "<cmd>Telescope spell_suggest<cr>", },           -- Spell suggestions
 
         -- Lsp mappings
         { "<leader>fR", "<cmd>Telescope lsp_references<cr>", },
