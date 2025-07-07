@@ -35,6 +35,7 @@ return {
         })
         require('neoclip').setup()
         require('stack.utils.format_picker');
+        require('stack.utils.compiler_picker');
         pcall(require('telescope').load_extension, 'ui-select')
     end,
     keys = {
@@ -44,6 +45,7 @@ return {
         { "<leader>fb", "<cmd>Telescope buffers<cr>", },                 -- Buffers
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", },               -- Help tags
         { "<leader>fc", "<cmd>Telescope colorscheme<cr>", },             -- Colorscheme
+        { "<leader>fC", "<cmd>lua CompilerPicker()<cr>", },              -- Colorscheme
         { "<leader>fr", "<cmd>Telescope oldfiles<cr>", },                -- Recent
         { "<leader>ft", "<cmd>Telescope builtin<cr>", },                 -- Telescope options
         { "<leader>fy", "<cmd>Telescope neoclip plus<cr>", },            -- Tracked by git
@@ -51,6 +53,7 @@ return {
         { "<leader>fn", "<cmd>Telescope notify<cr>", },                  -- Notify history
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", },                 -- Keymaps
         { "<leader>fu", "<cmd>Telescope spell_suggest<cr>", },           -- Spell suggestions
+        { "<leader>fq", "<cmd>Telescope quickfix<cr>", },                -- Quickfix list
 
         -- Lsp mappings
         { "<leader>fR", "<cmd>Telescope lsp_references<cr>", },

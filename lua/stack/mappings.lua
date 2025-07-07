@@ -47,8 +47,15 @@ vim.api.nvim_set_keymap("n", "<S-left>", "<cmd>vertical resize -2<CR>", { norema
 vim.api.nvim_set_keymap("n", "<S-up>", "<cmd>horizontal resize +2<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<S-down>", "<cmd>horizontal resize -2<CR>", { noremap = true })
 
--- Close quickfix
-vim.api.nvim_set_keymap("n", "<leader>q", ":cclose<CR>", { noremap = true })
+-- Quickfix stuff
+vim.api.nvim_set_keymap("n", "<leader>qr", "<cmd>lua QuickfixToggle()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>qn", "<cmd>cnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>qp", "<cmd>cprev<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>qf", "<cmd>cfirst<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ql", "<cmd>clast<CR>", { noremap = true })
+
+-- Build stuff
+vim.api.nvim_set_keymap("n", "<leader>bu", "<cmd>make<CR>", { noremap = true })
 
 -- Eval expression selected
 vim.api.nvim_set_keymap("x", "<leader>me", ":s/.*/\\=eval(submatch(0))<CR>", { noremap = true })

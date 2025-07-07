@@ -26,10 +26,9 @@ else
     vim.api.nvim_command("autocmd fileType cpp imap <buffer> <F5> <esc>:w<cr>:exec \"!g++ % -g -o main && ./main\"<CR>")
     vim.api.nvim_command("autocmd filetype cpp map <buffer> <F6> :w<cr>:exec \"!g++ % -g -o main\"<CR>")
     vim.api.nvim_command("autocmd fileType cpp imap <buffer> <F6> <esc>:w<cr>:exec \"!g++ % -g -o main\"<CR>")
-    vim.api.nvim_command("autocmd filetype cpp map <buffer> <leader>bu :w<cr>:exec \"!make\"<CR>")
+    vim.api.nvim_command("autocmd filetype cpp map <buffer> <leader>br :w<cr>:exec \"!make && ./main\"<CR>")
 end
 
-vim.api.nvim_command("autocmd filetype c map <buffer> <leader>bu :w<cr>:exec \"!make\"<CR>")
 vim.api.nvim_command("autocmd filetype c map <buffer> <leader>br :w<cr>:exec \"!make && ./main\"<CR>")
 
 -- Run js code
@@ -62,6 +61,7 @@ vim.api.nvim_command("autocmd BufRead,BufEnter *.blade.php set filetype=blade")
 
 -- Spell check spanish md files
 vim.api.nvim_command("autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es")
+vim.api.nvim_command("autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=es")
 
 -- Remove trailing whitespace on save
 -- vim.api.nvim_command("autocmd BufWritePre * %s/\\s\\+$//e")
