@@ -21,6 +21,8 @@ return {
                 keymaps = {
                     ["af"] = "@function.outer",
                     ["if"] = "@function.inner",
+                    ["ia"] = "@parameter.inner",
+                    ["aa"] = "@parameter.outer",
                     ["ac"] = "@conditional.outer",
                     ["ic"] = "@conditional.inner",
                     -- ["al"] = "@loop.outer",

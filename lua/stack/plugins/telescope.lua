@@ -4,8 +4,6 @@ return {
         { 'nvim-lua/plenary.nvim' },
         { 'nvim-lua/popup.nvim' },
         { 'kyazdani42/nvim-web-devicons' },
-        { 'AckslD/nvim-neoclip.lua' },
-        { 'nvim-telescope/telescope-project.nvim' },
         { 'nvim-telescope/telescope-ui-select.nvim' },
     },
     config = function()
@@ -33,7 +31,6 @@ return {
                 },
             },
         })
-        require('neoclip').setup()
         require('stack.utils.format_picker');
         require('stack.utils.compiler_picker');
         pcall(require('telescope').load_extension, 'ui-select')
@@ -48,8 +45,6 @@ return {
         { "<leader>fC", "<cmd>lua CompilerPicker()<cr>", },              -- Colorscheme
         { "<leader>fr", "<cmd>Telescope oldfiles<cr>", },                -- Recent
         { "<leader>ft", "<cmd>Telescope builtin<cr>", },                 -- Telescope options
-        { "<leader>fy", "<cmd>Telescope neoclip plus<cr>", },            -- Tracked by git
-        { "<leader>fp", "<cmd>Telescope project<cr>", },                 -- Projects
         { "<leader>fn", "<cmd>Telescope notify<cr>", },                  -- Notify history
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", },                 -- Keymaps
         { "<leader>fu", "<cmd>Telescope spell_suggest<cr>", },           -- Spell suggestions

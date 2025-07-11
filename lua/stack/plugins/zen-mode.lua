@@ -5,7 +5,8 @@ return {
             options = {
                 signcolumn = "no",
                 colorcolumn = "0",
-            }
+            },
+            width = 120,
         },
     },
     init = function()

@@ -12,4 +12,3 @@ Config files for neovim
 - Bracket closing with remaps
 - Vim surround
 - Neovim visual multi 
-- Neoclip

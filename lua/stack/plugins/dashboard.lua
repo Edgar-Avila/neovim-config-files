@@ -33,14 +33,6 @@ return {
                     },
                     {
                         icon = ' ',
-                        desc = 'Find Projects',
-                        key = 'p',
-                        keymap = 'SPC f p',
-                        key_format = ' %s',
-                        action = 'Telescope project'
-                    },
-                    {
-                        icon = ' ',
                         desc = 'Find Recent Files',
                         key = 'r',
                         keymap = 'SPC f r',
@@ -55,6 +47,14 @@ return {
                         key_format = ' %s',
                         action = 'Telescope colorscheme'
                     },
+                    {
+                        icon = ' ',
+                        desc = 'Harpooned Files',
+                        key = 'h',
+                        keymap = 'SPC s s',
+                        key_format = ' %s',
+                        action = 'lua require("harpoon.ui").toggle_quick_menu()'
+                    }
                 },
                 -- footer = {}
             }
