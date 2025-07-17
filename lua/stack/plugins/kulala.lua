@@ -1,7 +1,9 @@
 return {
-  {
     'mistweaverco/kulala.nvim',
-    opts = {},
+    opts = {
+        ui = {
+            display_mode = "float",
+        }
+    },
     ft = { "http" },
-  },
 }

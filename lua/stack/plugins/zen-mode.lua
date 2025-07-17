@@ -6,7 +6,7 @@ return {
                 signcolumn = "no",
                 colorcolumn = "0",
             },
-            width = 120,
+            width = 80,
         },
     },
     init = function()
