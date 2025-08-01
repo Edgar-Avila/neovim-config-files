@@ -2,6 +2,6 @@ return {
     'ellisonleao/gruvbox.nvim',
     event = "VeryLazy",
     opts = {
-        transparent_mode = false,
+        -- transparent_mode = true,
     }
 }

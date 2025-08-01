@@ -62,3 +62,6 @@ vim.api.nvim_set_keymap("x", "<leader>me", ":s/.*/\\=eval(submatch(0))<CR>", { n
 
 -- Make ctrl + c the same as escape
 vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
+
+-- Tmux sessionizer
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

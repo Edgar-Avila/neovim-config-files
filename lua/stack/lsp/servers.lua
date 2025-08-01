@@ -2,11 +2,16 @@ local lspconfig = require('lspconfig')
 local config = require('stack.lsp.config')
 --
 -- Configure servers by default
+lspconfig.gdscript.setup(config())
+vim.g.Omnisharp_server_use_net6 = 1
+vim.g.OmniSharp_highlighting = 0
 lspconfig.omnisharp.setup(config())
 lspconfig.marksman.setup(config({}, true))
 lspconfig.pyright.setup(config())
 lspconfig.prismals.setup(config())
-lspconfig.elixirls.setup(config())
+lspconfig.elixirls.setup(config({
+    cmd = { "/home/stack/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" }
+}))
 lspconfig.solargraph.setup(config())
 lspconfig.jsonls.setup(config())
 lspconfig.clangd.setup(config({
