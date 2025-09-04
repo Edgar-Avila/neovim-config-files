@@ -1,7 +1,9 @@
 local lspconfig = require('lspconfig')
 local config = require('stack.lsp.config')
---
+
+-------------------------------------------------------------------------------
 -- Configure servers by default
+-------------------------------------------------------------------------------
 lspconfig.gdscript.setup(config())
 vim.g.Omnisharp_server_use_net6 = 1
 vim.g.OmniSharp_highlighting = 0
@@ -50,7 +52,12 @@ lspconfig.bashls.setup(config())
 lspconfig.intelephense.setup(config({
     filetypes = { "php", "blade" },
 }))
--- lspconfig.angularls.setup(config())
+lspconfig.dockerls.setup(config())
+local project_library_path = "/home/stack/.asdf/installs/nodejs/22.14.0/bin/ngserver"
+local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
+lspconfig.angularls.setup(config({
+    cmd = cmd,
+}))
 
 -------------------------------------------------------------------------------
 -- Configure servers with custom configuration

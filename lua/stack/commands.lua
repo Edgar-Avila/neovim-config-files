@@ -65,3 +65,20 @@ vim.api.nvim_command("autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=
 
 -- Remove trailing whitespace on save
 -- vim.api.nvim_command("autocmd BufWritePre * %s/\\s\\+$//e")
+vim.api.nvim_command("autocmd filetype plantuml map <buffer> <F5> :w<cr>:exec \"!java -jar plantuml.jar %\"<CR>")
+
+vim.api.nvim_command([[
+  autocmd BufWritePost *.puml silent! exec "!java -jar plantuml.jar %" | redraw!
+]])
+
+vim.api.nvim_command(string.format(
+  "autocmd FileType plantuml map <buffer> <F5> :w<CR>:exec \"!java -jar %s %%\"<CR>",
+  vim.g.plantumlJar
+))
+
+if vim.g.plantumlCompileOnSave then
+    vim.api.nvim_command(string.format(
+      "autocmd BufWritePost *.puml silent! exec \"!java -jar %s %%\" | redraw!",
+      vim.g.plantumlJar
+    ))
+end
