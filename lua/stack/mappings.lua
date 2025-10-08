@@ -32,14 +32,14 @@ vim.api.nvim_set_keymap("o", "il", ":<C-u>normal vil<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gh", "^", { noremap = true })
 vim.api.nvim_set_keymap("n", "gl", "$", { noremap = true })
 
--- Closing brackets and quotes
-vim.api.nvim_set_keymap("i", "'",     "''<left>",     { noremap = true })
-vim.api.nvim_set_keymap("i", "`",     "``<left>",     { noremap = true })
-vim.api.nvim_set_keymap("i", "\"",    "\"\"<left>",   { noremap = true })
-vim.api.nvim_set_keymap("i", "{",     "{}<left>",     { noremap = true })
-vim.api.nvim_set_keymap("i", "(",     "()<left>",     { noremap = true })
-vim.api.nvim_set_keymap("i", "[",     "[]<left>",     { noremap = true })
-vim.api.nvim_set_keymap("i", "{<CR>", "{<CR>}<ESC>O", { noremap = true })
+-- -- Closing brackets and quotes
+-- vim.api.nvim_set_keymap("i", "'",     "''<left>",     { noremap = true })
+-- vim.api.nvim_set_keymap("i", "`",     "``<left>",     { noremap = true })
+-- vim.api.nvim_set_keymap("i", "\"",    "\"\"<left>",   { noremap = true })
+-- vim.api.nvim_set_keymap("i", "{",     "{}<left>",     { noremap = true })
+-- vim.api.nvim_set_keymap("i", "(",     "()<left>",     { noremap = true })
+-- vim.api.nvim_set_keymap("i", "[",     "[]<left>",     { noremap = true })
+-- vim.api.nvim_set_keymap("i", "{<CR>", "{<CR>}<ESC>O", { noremap = true })
 
 -- Resize windows
 vim.api.nvim_set_keymap("n", "<S-right>", "<cmd>vertical resize +2<CR>", { noremap = true })

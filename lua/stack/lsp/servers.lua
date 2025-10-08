@@ -5,9 +5,12 @@ local config = require('stack.lsp.config')
 -- Configure servers by default
 -------------------------------------------------------------------------------
 lspconfig.gdscript.setup(config())
-vim.g.Omnisharp_server_use_net6 = 1
-vim.g.OmniSharp_highlighting = 0
-lspconfig.omnisharp.setup(config())
+lspconfig.java_language_server.setup(config({
+    cmd = { "/home/stack/.local/share/nvim/mason/packages/java-language-server/dist/lang_server_linux.sh" },
+}))
+-- vim.g.Omnisharp_server_use_net8 = 1
+-- vim.g.OmniSharp_highlighting = 0
+lspconfig.csharp_ls.setup(config())
 lspconfig.marksman.setup(config({}, true))
 lspconfig.pyright.setup(config())
 lspconfig.prismals.setup(config())
@@ -19,6 +22,7 @@ lspconfig.jsonls.setup(config())
 lspconfig.clangd.setup(config({
     cmd = {
         "clangd",
+        "--background-index",
         "--offset-encoding=utf-16",
         "--fallback-style=webkit"
     }
@@ -26,7 +30,7 @@ lspconfig.clangd.setup(config({
 lspconfig.tailwindcss.setup(config({
     filetypes = {
         "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge",
-        "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html",
+        "eelixir", "elixir", "elm", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html",
         "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php",
         "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss",
         "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ",
@@ -41,6 +45,7 @@ lspconfig.tailwindcss.setup(config({
     },
 }))
 
+lspconfig.astro.setup(config())
 lspconfig.texlab.setup(config())
 lspconfig.ts_ls.setup(config())
 lspconfig.cssls.setup(config())
@@ -52,12 +57,13 @@ lspconfig.bashls.setup(config())
 lspconfig.intelephense.setup(config({
     filetypes = { "php", "blade" },
 }))
+lspconfig.elmls.setup(config())
 lspconfig.dockerls.setup(config())
 local project_library_path = "/home/stack/.asdf/installs/nodejs/22.14.0/bin/ngserver"
 local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
-lspconfig.angularls.setup(config({
-    cmd = cmd,
-}))
+-- lspconfig.angularls.setup(config({
+--     cmd = cmd,
+-- }))
 
 -------------------------------------------------------------------------------
 -- Configure servers with custom configuration

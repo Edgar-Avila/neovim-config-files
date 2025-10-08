@@ -1,4 +1,3 @@
-vim.opt.completeopt = { "menu", "menuone", "noselect" } -- For nvim-cmp
 vim.opt.hlsearch = false
 vim.opt.hidden = true
 vim.opt.number = true

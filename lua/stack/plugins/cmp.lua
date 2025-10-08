@@ -97,5 +97,8 @@ return {
 
         -- Remap tab in command mode
         vim.keymap.set('c', '<tab>', '<C-z>', { silent = false })
-    end
+    end,
+    init = function()
+        vim.opt.completeopt = { "menu", "menuone", "noselect" }
+    end,
 }
