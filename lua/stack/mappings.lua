@@ -65,3 +65,7 @@ vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
 
 -- Tmux sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+-- Buffer navigation
+vim.api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>bp", ":bprevious<CR>", { noremap = true })

@@ -3,6 +3,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
     keys = {
-        { "-", "<CMD>Oil --float<CR>" },
+        { "-", "<CMD>Oil<CR>" },
     },
 }

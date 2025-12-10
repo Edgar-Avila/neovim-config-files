@@ -45,7 +45,7 @@ return {
         { "<leader>fC", "<cmd>lua CompilerPicker()<cr>", },              -- Colorscheme
         { "<leader>fr", "<cmd>Telescope oldfiles<cr>", },                -- Recent
         { "<leader>ft", "<cmd>Telescope builtin<cr>", },                 -- Telescope options
-        { "<leader>fn", "<cmd>Telescope notify<cr>", },                  -- Notify history
+        { "<leader>fn", "<cmd>lua Snacks.notifier.show_history()<cr>", },-- Notify history
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", },                 -- Keymaps
         { "<leader>fu", "<cmd>Telescope spell_suggest<cr>", },           -- Spell suggestions
         { "<leader>fq", "<cmd>Telescope quickfix<cr>", },                -- Quickfix list

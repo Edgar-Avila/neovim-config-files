@@ -5,6 +5,7 @@ local config = require('stack.lsp.config')
 -- Configure servers by default
 -------------------------------------------------------------------------------
 lspconfig.gdscript.setup(config())
+lspconfig.jqls.setup(config())
 lspconfig.java_language_server.setup(config({
     cmd = { "/home/stack/.local/share/nvim/mason/packages/java-language-server/dist/lang_server_linux.sh" },
 }))

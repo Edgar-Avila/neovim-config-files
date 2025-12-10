@@ -23,3 +23,18 @@ vim.opt.smartcase = true
 vim.opt.conceallevel = 2
 vim.opt.foldenable = false
 vim.g.mapleader = ' '
+
+local projectfile = vim.fn.getcwd() .. '/project.godot'
+
+if vim.fn.filereadable(projectfile) == 1 then
+  local server_name = './godothost'
+  local servers = vim.fn.serverlist()
+
+  if not vim.tbl_contains(servers, server_name) then
+    pcall(vim.fn.serverstart, server_name)
+    print("Started Neovim server:", server_name)
+  else
+    print("Server already running:", server_name)
+  end
+end
+
