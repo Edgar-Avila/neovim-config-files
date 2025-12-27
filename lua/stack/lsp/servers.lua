@@ -5,6 +5,22 @@ local config = require('stack.lsp.config')
 -- Configure servers by default
 -------------------------------------------------------------------------------
 lspconfig.gdscript.setup(config())
+lspconfig.ltex.setup(config({
+    settings = {
+        ltex = {
+            language = "es",
+        },
+    },
+    on_attach = function(client, bufnr)
+        config().on_attach(client, bufnr)
+        require("ltex_extra").setup({
+            load_langs = { "es" },
+            init_check = true,
+            path = vim.fn.expand('~') .. '/.local/share/ltex',
+        })
+    end,
+    
+}))
 lspconfig.jqls.setup(config())
 lspconfig.java_language_server.setup(config({
     cmd = { "/home/stack/.local/share/nvim/mason/packages/java-language-server/dist/lang_server_linux.sh" },
