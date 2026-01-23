@@ -1,4 +1,3 @@
-require('stack.utils')
 require('stack.globals')
 require('stack.settings')
 require('stack.filetypes')

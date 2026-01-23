@@ -1,4 +1,4 @@
-function ExistsInCwd(nameToCheck)
+local function exists_in_cwd(nameToCheck)
     local cwDir = vim.fn.getcwd()
 
     -- Get all files and directories in CWD
@@ -13,3 +13,7 @@ function ExistsInCwd(nameToCheck)
     end
     return false
 end
+
+return {
+    exists_in_cwd = exists_in_cwd,
+}

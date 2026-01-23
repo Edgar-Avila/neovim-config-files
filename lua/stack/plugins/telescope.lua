@@ -42,7 +42,7 @@ return {
         { "<leader>fb", "<cmd>Telescope buffers<cr>", },                 -- Buffers
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", },               -- Help tags
         { "<leader>fc", "<cmd>Telescope colorscheme<cr>", },             -- Colorscheme
-        { "<leader>fC", "<cmd>lua CompilerPicker()<cr>", },              -- Colorscheme
+        { "<leader>fC", require("stack.utils.compiler_picker"), },              -- Colorscheme
         { "<leader>fr", "<cmd>Telescope oldfiles<cr>", },                -- Recent
         { "<leader>ft", "<cmd>Telescope builtin<cr>", },                 -- Telescope options
         { "<leader>fn", "<cmd>lua Snacks.notifier.show_history()<cr>", },-- Notify history
@@ -55,7 +55,7 @@ return {
         { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", },
         { "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", },
         { "<leader>fd", "<cmd>Telescope diagnostics<cr>", },
-        { "<leader>fm", "<cmd>lua FormatterPicker()<cr>", },
+        { "<leader>fm", require("stack.utils.format_picker"), },
 
         -- Git mappings
         { "<leader>gc", "<cmd>Telescope git_commits<cr>", },   -- Git commits

@@ -1,4 +1,4 @@
-function QuickfixToggle()
+local function quickfix_toggle()
     local qf_exists = false
     for _, win in pairs(vim.fn.getwininfo()) do
         if win["quickfix"] == 1 then
@@ -15,3 +15,5 @@ function QuickfixToggle()
     end
     vim.cmd("copen")
 end
+
+return quickfix_toggle

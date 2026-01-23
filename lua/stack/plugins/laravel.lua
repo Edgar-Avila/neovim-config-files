@@ -1,3 +1,5 @@
+local fs_utils = require("stack.utils.filesystem")
+
 return {
     "adalessa/laravel.nvim",
     dependencies = {
@@ -27,8 +29,7 @@ return {
         { "<leader>le", "<cmd>e routes/api.php<cr>"},
     },
     cond = function()
-        -- return true
-        return ExistsInCwd("artisan")
+        return fs_utils.exists_in_cwd("artisan")
     end,
     event = { "VeryLazy" },
     config = function ()

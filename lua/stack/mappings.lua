@@ -14,7 +14,16 @@ vim.api.nvim_set_keymap("n", "<leader>cdi", ":exe 'cd ' . fnamemodify($MYVIMRC, 
 vim.api.nvim_set_keymap("n", "<leader>cdf", ":cd %:p:h<CR>", { noremap = true })
 
 -- Make background transparent
-vim.api.nvim_set_keymap("n", "<leader>bg", ":lua SetBgTransparent()<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>bg", require("stack.utils.transparent_bg"))
+
+-- Browse the web
+vim.keymap.set("n", "<leader>bo", require("stack.utils.web_picker"))
+
+-- Bookmarks
+vim.keymap.set("n", "<leader>bm", require("stack.utils.bookmark_picker"))
+
+-- Media files
+vim.keymap.set("n", "<leader>me", require("stack.utils.media_picker"))
 
 -- Create tab
 vim.api.nvim_set_keymap("n", "<leader>mt", ":tabnew<CR>", { noremap = true })
@@ -42,13 +51,14 @@ vim.api.nvim_set_keymap("n", "gl", "$", { noremap = true })
 -- vim.api.nvim_set_keymap("i", "{<CR>", "{<CR>}<ESC>O", { noremap = true })
 
 -- Resize windows
-vim.api.nvim_set_keymap("n", "<S-right>", "<cmd>vertical resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<S-left>", "<cmd>vertical resize -2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<S-up>", "<cmd>horizontal resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<S-down>", "<cmd>horizontal resize -2<CR>", { noremap = true })
+vim.keymap.set("n", "<S-right>", "<cmd>vertical resize +2<CR>")
+vim.keymap.set("n", "<S-left>", "<cmd>vertical resize -2<CR>")
+vim.keymap.set("n", "<S-up>", "<cmd>horizontal resize +2<CR>")
+vim.keymap.set("n", "<S-down>", "<cmd>horizontal resize -2<CR>")
 
 -- Quickfix stuff
-vim.api.nvim_set_keymap("n", "<leader>qr", "<cmd>lua QuickfixToggle()<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>qr", "<cmd>lua QuickfixToggle()<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>qr", require("stack.utils.quickfix_toggle"))
 vim.api.nvim_set_keymap("n", "<leader>qn", "<cmd>cnext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>qp", "<cmd>cprev<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>qf", "<cmd>cfirst<CR>", { noremap = true })
@@ -58,7 +68,7 @@ vim.api.nvim_set_keymap("n", "<leader>ql", "<cmd>clast<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>bu", "<cmd>make<CR>", { noremap = true })
 
 -- Eval expression selected
-vim.api.nvim_set_keymap("x", "<leader>me", ":s/.*/\\=eval(submatch(0))<CR>", { noremap = true })
+vim.api.nvim_set_keymap("x", "<leader>ma", ":s/.*/\\=eval(submatch(0))<CR>", { noremap = true })
 
 -- Make ctrl + c the same as escape
 vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })

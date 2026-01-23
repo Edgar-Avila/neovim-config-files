@@ -1,10 +1,10 @@
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
 local conf = require("telescope.config").values
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 
-CompilerPicker = function(opts)
+local function compiler_picker(opts)
     opts = {}
 
     local builtInFiles = vim.split(
@@ -59,3 +59,5 @@ CompilerPicker = function(opts)
         end,
     }):find()
 end
+
+return compiler_picker
