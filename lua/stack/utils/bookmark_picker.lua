@@ -34,7 +34,7 @@ local function bookmark_picker(opts)
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
-                vim.cmd("Open " .. vim.fn.fnameescape(selection.value.to))
+                vim.ui.open(selection.value.to)
             end)
             return true
         end,

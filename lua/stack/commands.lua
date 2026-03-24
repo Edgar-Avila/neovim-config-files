@@ -82,3 +82,28 @@ if vim.g.plantumlCompileOnSave then
       vim.g.plantumlJar
     ))
 end
+
+-- Auto read files changed outside of nvim
+vim.api.nvim_create_augroup("auto_read", { clear = true })
+vim.api.nvim_create_autocmd(
+  { "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" },
+  {
+    group = "auto_read",
+    callback = function()
+      if vim.fn.mode() ~= "c" then
+        vim.cmd("checktime")
+      end
+    end,
+  }
+)
+
+-- Open media files with the default system viewer
+vim.api.nvim_create_autocmd("BufReadCmd", {
+  pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.pdf", "*.mp4", "*.mp3", "*.avi", "*.mkv" },
+  callback = function(args)
+    vim.cmd("Open " .. args.file)
+  end,
+})
+
+-- leader ie to eval (if racket or scheme file)
+vim.api.nvim_command("autocmd FileType racket,scheme map <buffer> <leader>ie :ConjureEvalCurrentForm<CR>")

@@ -65,7 +65,8 @@ vim.api.nvim_set_keymap("n", "<leader>qf", "<cmd>cfirst<CR>", { noremap = true }
 vim.api.nvim_set_keymap("n", "<leader>ql", "<cmd>clast<CR>", { noremap = true })
 
 -- Build stuff
-vim.api.nvim_set_keymap("n", "<leader>bu", "<cmd>make<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>bu", "<cmd>make<CR>")
+vim.keymap.set("n", "<leader>bp", require("stack.utils.set_make_prg"))
 
 -- Eval expression selected
 vim.api.nvim_set_keymap("x", "<leader>ma", ":s/.*/\\=eval(submatch(0))<CR>", { noremap = true })
@@ -76,6 +77,20 @@ vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
 -- Tmux sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
--- Buffer navigation
-vim.api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>bp", ":bprevious<CR>", { noremap = true })
+-- Source luafile
+-- vim.keymap.set("n", "<leader>ls", "<cmd>luafile %<CR>")
+
+-- -- Buffer navigation
+-- vim.api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>bp", ":bprevious<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>l", ":bnext<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>h", ":bprevious<CR>", { noremap = true })
+-- vim.keymap.set("n", "<leader>h", "<cmd>bprevious<CR>")
+-- vim.keymap.set("n", "<leader>l", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<leader>uu", "<cmd>read ! uuidgen<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ut", "<cmd>read ! uuidgen -t<CR>", { noremap = true })
+
+-- vim.keymap.set("n", "<leader><tab>", require("stack.utils.mru_buffers").prev_buffer)
+-- vim.keymap.set("n", "<leader><S-tab>", require("stack.utils.mru_buffers").next_buffer)
+vim.keymap.set("n", "<leader>h", require("stack.utils.mru_buffers").prev_buffer)
+vim.keymap.set("n", "<leader>l", require("stack.utils.mru_buffers").next_buffer)

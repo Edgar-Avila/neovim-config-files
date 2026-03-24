@@ -1,6 +1,8 @@
 -- Helper function to configure servers
-local function config(_config, no_formatexpr)
+local function config(_config)
     local opts = { noremap = true, silent = true }
+    local no_formatexpr = _config and _config.nvim_no_formatexpr or false
+
     return vim.tbl_deep_extend("force", {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(client, bufnr)
@@ -19,11 +21,19 @@ local function config(_config, no_formatexpr)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ga', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+            -- Encapsulate in IDE keymaps
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>if', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ia', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ir', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>iR', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ii', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>id', '<cmd>Telescope diagnostics<cr>', opts)
+
             if no_formatexpr then
                 vim.api.nvim_set_option_value("formatexpr", "", { buf = bufnr })
             end
         end,
-        root_dir = function (fname)
+        root_dir = function(fname)
             return vim.loop.cwd()
         end
     }, _config or {})

@@ -15,7 +15,7 @@ return {
         styles = {
             zen = {
                 width = 100,
-            }
+            },
         }
     },
     keys = {
