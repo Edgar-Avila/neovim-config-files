@@ -1,6 +1,4 @@
-local lspconfig = require('lspconfig')
 local config = require('stack.lsp.config')
-local fs_utils = require("stack.utils.filesystem")
 
 vim.g.Omnisharp_server_use_net8 = 1
 vim.g.OmniSharp_highlighting = 0
@@ -8,7 +6,7 @@ vim.g.OmniSharp_highlighting = 0
 local emmet_capabilities = require('cmp_nvim_lsp').default_capabilities()
 emmet_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = {
+return {
     gdscript = {},
     jqls = {},
     hls = {},
@@ -36,12 +34,10 @@ local servers = {
         filetypes = {
             "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge",
             "eelixir", "elixir", "elm", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs",
-            "html",
-            "html-eex", "heex", "jade", "leaf", "liquid", "mdx", "mustache", "njk", "nunjucks", "php",
+            "html", "html-eex", "heex", "jade", "leaf", "liquid", "mdx", "mustache", "njk", "nunjucks", "php",
             "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss",
             "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte",
-            "templ",
-            "angular"
+            "templ", "angular"
         },
         init_options = {
             userLanguages = {
@@ -112,14 +108,3 @@ local servers = {
         end,
     }
 }
-
-for server_name, server_config in pairs(servers) do
-    local disable_file = "nvim-" .. server_name .. "-disable"
-    local disable_exists = fs_utils.exists_in_cwd(disable_file)
-    local enabled = not server_config.nvim_disable
-    local should_setup = enabled and not disable_exists
-
-    if should_setup then
-        lspconfig[server_name].setup(config(server_config))
-    end
-end

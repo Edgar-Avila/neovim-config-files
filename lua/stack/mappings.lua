@@ -25,6 +25,9 @@ vim.keymap.set("n", "<leader>bm", require("stack.utils.bookmark_picker"))
 -- Media files
 vim.keymap.set("n", "<leader>me", require("stack.utils.media_picker"))
 
+-- LSP servers
+vim.keymap.set("n", "<leader>fl", require("stack.utils.lsp_picker"))
+
 -- Create tab
 vim.api.nvim_set_keymap("n", "<leader>mt", ":tabnew<CR>", { noremap = true })
 
@@ -92,5 +95,5 @@ vim.keymap.set("n", "<leader>ut", "<cmd>read ! uuidgen -t<CR>", { noremap = true
 
 -- vim.keymap.set("n", "<leader><tab>", require("stack.utils.mru_buffers").prev_buffer)
 -- vim.keymap.set("n", "<leader><S-tab>", require("stack.utils.mru_buffers").next_buffer)
-vim.keymap.set("n", "<leader>h", require("stack.utils.mru_buffers").prev_buffer)
-vim.keymap.set("n", "<leader>l", require("stack.utils.mru_buffers").next_buffer)
+-- vim.keymap.set("n", "<leader>h", require("stack.utils.mru_buffers").prev_buffer)
+-- vim.keymap.set("n", "<leader>l", require("stack.utils.mru_buffers").next_buffer)
